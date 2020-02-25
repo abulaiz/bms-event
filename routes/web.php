@@ -20,3 +20,15 @@ include 'web/filehandler.php';
 Auth::routes(['register' => false, 'reset' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', function() {
+    return view('_admin._contents.auth.login');
+})->name('login');
+
+Route::get('/admin/dashboard', function() {
+    return view('_admin._contents.dashboard.index');
+})->name('dashboard');
+
+Route::get('/admin/events', function() {
+    return view('_admin._contents.events.index');
+})->name('events');
