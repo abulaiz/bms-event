@@ -1,5 +1,5 @@
   <!-- fixed-top-->
-  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark bg-primary navbar-shadow navbar-brand-center">
+  <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark navbar-shadow navbar-brand-center">
     <div class="navbar-wrapper">
       <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">

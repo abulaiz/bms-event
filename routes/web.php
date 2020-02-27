@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('_user._contents.events.index');
 });
 
 Auth::routes();
@@ -30,3 +30,19 @@ Route::get('/admin/dashboard', function() {
 Route::get('/admin/events', function() {
     return view('_admin._contents.events.index');
 })->name('events');
+
+Route::get('/admin/laporan', function() {
+    return view('_admin._contents.laporan.index');
+})->name('laporan');
+
+Route::get('/admin/absensi', function() {
+    return view('_admin._contents.absensi.index');
+})->name('absensi');
+
+Route::get('/admin/peserta', function() {
+    return view('_admin._contents.peserta.index');
+})->name('peserta');
+
+Route::get('/register', function() {
+    return view('_user._contents.register.index');
+})->name('register');

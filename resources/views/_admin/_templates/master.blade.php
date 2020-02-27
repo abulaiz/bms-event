@@ -77,7 +77,8 @@ data-open="click" data-menu="vertical-compact-menu" data-col="2-columns">
     <script src="{{ URL::asset('admin/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="{{ URL::asset('admin/js/scripts/pages/dashboard-fitness.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('admin/js/scripts/pages/dashboard-project.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::asset('admin/js/scripts/pages/dashboard-analytics.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
 
     @yield('additionalScripts')
