@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('_user._contents.events.index');
 });
 
-Auth::routes();
+include 'web/filehandler.php';
+
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
