@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Storage;
+use SimpleEnc;
 
 class FileController extends Controller
 {
@@ -27,5 +28,12 @@ class FileController extends Controller
         	$mime = 'image/png';
 
         return response(Storage::get($files[0]))->header('Content-Type', $mime);    	
+    }
+
+    public function qrcode($code){
+        $flag = new SimpleEnc()->decrypt($colde);
+        $file = Storage::get('qrcode/'.$flag.'.png');
+
+        return response($file)->header('Content-Type', 'image/png');
     }
 }

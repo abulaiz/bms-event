@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('place');
             $table->text('description');
             $table->string('agency');
+            $table->char('type', 1); // 1 : Public, 2 : Private / InHouse
             $table->timestamps();
         });
     }
