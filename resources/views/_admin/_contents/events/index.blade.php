@@ -40,23 +40,10 @@
                           <th>Instansi</th>
                           <th>Status</th>
                           <th>Action</th>
+                          <th>Hidden</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                            <td><a href="#">Pelatihan Pernikahan</a></td>
-                            <td>Bandung</td>
-                            <td>KUA Kecamatan Banjaran</td>
-                            <td>Coming Soon</td>
-                            <td class="action-menu"">
-                                    <button type="button" class="btn btn-outline-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                    <div class="dropdown-menu" x-placement="bottom-start">
-                                        <a data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#edit-event" class="dropdown-item">Edit</a>    
-                                        <a data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#detail" class="dropdown-item">Detail</a>
-                                        <a data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#detail" class="dropdown-item">Hapus</a>
-                                    </div>
-                            </td>
-                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -69,17 +56,26 @@
     @include('_admin._contents.events._modals.add')
     @include('_admin._contents.events._modals.edit')
 
+    <div class="hidden rm">
+      <p id="url-api-events">{{ route('api.event.index') }}</p>
+    </div>
+
+    <form id="form-delete" action="{{ route('api.event.destroy', 0) }}" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <button type="submit" id="button-delete" style="display: none;">Delete</button>
+    </form> 
 @endsection
 
 @section('additionalScripts')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/tables/datatable/datatables.min.css') }}">
     <script src="{{ URL::asset('admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/js/scripts/tables/datatables/datatable-basic.js') }}" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('#datatable').DataTable();
-        });
-        
-    </script>
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/icheck.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/custom.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/plugins/forms/checkboxes-radios.css')}}">    
+    <script type="text/javascript" src="{{ URL::asset('admin/vendors/js/forms/icheck/icheck.min.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ URL::asset('user/js/jquery.form.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ URL::asset('js/view/events/index.js?').uniqid() }}"></script>
 @endsection

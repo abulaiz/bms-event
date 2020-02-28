@@ -52,24 +52,18 @@ data-open="click" data-menu="vertical-compact-menu" data-col="2-columns">
 
     <footer class="footer footer-static footer-light navbar-border navbar-shadow">
     <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-      <span class="float-md-left d-block d-md-inline-block">Copyright &copy; 2018 <a class="text-bold-800 grey darken-2" href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent"
-        target="_blank">PIXINVENT </a>, All rights reserved. </span>
+      <span class="float-md-left d-block d-md-inline-block">Copyright &copy; {{ date('Y') }} <a class="text-bold-800 grey darken-2" href="#"
+        target="_blank">BEE TECH </a>, All rights reserved. </span>
       <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made with <i class="ft-heart pink"></i></span>
     </p>
     </footer>
     <!-- BEGIN VENDOR JS-->
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/vendors/css/extensions/toastr.css')}}">
     <script src="{{ URL::asset('admin/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBDkKetQwosod2SZ7ZGCpxuJdxY3kxo5Po"
-    type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/charts/gmaps.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/forms/icheck/icheck.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/extensions/jquery.knob.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/charts/raphael-min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/charts/morris.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/extensions/unslider-min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/vendors/js/charts/echarts/echarts.js') }}" type="text/javascript"></script>
+    <script src="{{URL::asset('admin/vendors/js/extensions/toastr.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('admin/vendors/js/extensions/sweetalert.min.js')}}" type="text/javascript"></script>
+    <script src="{{URL::asset('js/additional/confirmDialog.js')}}" type="text/javascript"></script> 
+    <script src="{{URL::asset('js/additional/leftToastr.js')}}" type="text/javascript"></script> 
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN ROBUST JS-->
     <script src="{{ URL::asset('admin/js/core/app-menu.js') }}" type="text/javascript"></script>
@@ -77,8 +71,6 @@ data-open="click" data-menu="vertical-compact-menu" data-col="2-columns">
     <script src="{{ URL::asset('admin/js/scripts/customizer.js') }}" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="{{ URL::asset('admin/js/scripts/pages/dashboard-project.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/js/scripts/pages/dashboard-analytics.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
 
     @yield('additionalScripts')

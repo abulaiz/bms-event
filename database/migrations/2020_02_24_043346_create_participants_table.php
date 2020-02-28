@@ -15,6 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('flag')->nullable();
             $table->unsignedInteger('event_id');
             $table->string('full_name');
             $table->string('nick_name');

@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Storage;
+use URL;
 
 class Event extends Model
 {
     protected $guarded = [''];
+
+    protected $appends = ['image'];
 
     private function checkImageFolder($id){
         if(!Storage::exists('event_image/'.$id)){
@@ -29,4 +32,7 @@ class Event extends Model
         Storage::put('event_image/'.$this->id, $value);
     }  
 
+    public function participants(){
+        return $this->hasMany('App\Models\Participant');
+    }
 }
