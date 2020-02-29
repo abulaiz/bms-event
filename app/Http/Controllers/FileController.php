@@ -31,7 +31,7 @@ class FileController extends Controller
     }
 
     public function qrcode($code){
-        $flag = new SimpleEnc()->decrypt($colde);
+        $flag = (new SimpleEnc())->decrypt($colde);
         $file = Storage::get('qrcode/'.$flag.'.png');
 
         return response($file)->header('Content-Type', 'image/png');

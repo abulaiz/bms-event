@@ -97,10 +97,29 @@ function _edit(e){
 	$("#form-update").find('[name=place]').val(data.place);
 	$("#form-update").find('[name=description]').val(data.description);
 	$("#form-update").find('[name=agency]').val(data.agency);
+	$("#edit-event-image").attr({'src' : data.image});
 	$("#edit-type-" + (data.type == '1' ? 'umum' : 'private')).iCheck('check');
 	$("#form-update").attr({'action' : _URL.delete.replace('/0', '/'+data.id)});
 
 	$("#edit-event").modal({
 		show : true, backdrop: 'static', keyboard: false
 	});	
+}
+
+function _triger(e){
+	$( e.parentNode.parentNode ).find("[type=file]").click();
+}
+function previewFile(e) {
+  var preview = e.parentNode.children[0].children[0];
+  var file    = e.files[0];
+
+  var reader  = new FileReader();
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
 }

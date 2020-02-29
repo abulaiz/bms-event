@@ -91,10 +91,26 @@ class EventController extends Controller
             'type' => $request->type
 	    ]);
 
+        if($request->type == '2'){
+            $o_flag = strtolower($request->name);
+            $o_flag = str_replace(' ', '-', $o_flag);
+            $flag = $o_flag;
+            $f_count = 1;
+            while ( Event::where('flag', $flag)->exists() ) {
+                $flag = $o_flag.'-'.$f_count;
+                $f_count++;
+            } 
+            $event->update(['flag' => $flag]);           
+        }
+
 	    $event->update(['image' => $img]);
 
 	    return response()->json(['success' => true]);
 
+    }
+
+    public function edit($id){
+        die($id);
     }
 
     public function update(Request $request, $id){
@@ -122,6 +138,18 @@ class EventController extends Controller
             'description' => $request->description, 'agency' => $request->agency,
             'type' => $request->type
         ]);
+
+        if($request->type == '2' && ($event->flag == null || $event->flag == "") ){
+            $o_flag = strtolower($request->name);
+            $o_flag = str_replace(' ', '-', $o_flag);
+            $flag = $o_flag;
+            $f_count = 1;
+            while ( Event::where('flag', $flag)->exists() ) {
+                $flag = $o_flag.'-'.$f_count;
+                $f_count++;
+            } 
+            $event->update(['flag' => $flag]);           
+        }        
 
         $event->update(['image' => $img]);
 

@@ -55,6 +55,7 @@
         
     @include('_admin._contents.events._modals.add')
     @include('_admin._contents.events._modals.edit')
+    @include('_admin._contents.events._modals.detail')
 
     <div class="hidden rm">
       <p id="url-api-events">{{ route('api.event.index') }}</p>
@@ -73,9 +74,9 @@
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/icheck.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/custom.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/plugins/forms/checkboxes-radios.css')}}">    
-    <script type="text/javascript" src="{{ URL::asset('admin/vendors/js/forms/icheck/icheck.min.js') }}"></script>
-    
-    <script type="text/javascript" src="{{ URL::asset('user/js/jquery.form.js') }}"></script>
-    
-    <script type="text/javascript" src="{{ URL::asset('js/view/events/index.js?').uniqid() }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('admin/vendors/js/forms/icheck/icheck.min.js') }}"></script>
+  
+  <script type="text/javascript" src="{{ URL::asset('user/js/jquery.form.js') }}"></script>
+  
+  <script type="text/javascript" src="{{ URL::asset('js/view/events/index.js?').uniqid() }}"></script>
 @endsection

@@ -39,7 +39,7 @@ class CreateParticipantsTable extends Migration
         });
 
         Schema::create('participant_personalities', function(Blueprint $table) {
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('participant_id');
             $table->string('strength');
             $table->string('weakness');
             $table->string('opportunity');

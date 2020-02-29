@@ -20,4 +20,4 @@ use Illuminate\Http\Request;
 Route::get('event/active', 'EventController@active_event')->name('api.event.active');
 Route::get('event/detail/{id}', 'EventController@detail')->name('api.event.detail');
 Route::post('event/paginated', 'EventController@paginated_list')->name('api.event.list');
-Route::resource('event', 'EventController', ['as' => 'api'])->except(['edit', 'create']);
+Route::resource('event', 'EventController', ['as' => 'api'])->except(['create']);

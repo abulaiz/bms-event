@@ -12,6 +12,17 @@ class Event extends Model
 
     protected $appends = ['image'];
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($event) {
+            $files = Storage::files('event_image/'.$event->id);
+            foreach ($files as $item) {
+                Storage::delete($item);
+            }            
+        });
+    }       
+
     private function checkImageFolder($id){
         if(!Storage::exists('event_image/'.$id)){
             Storage::makeDirectory('event_image/'.$id, 777, true, true);            
@@ -29,6 +40,10 @@ class Event extends Model
     {
         if($value == null) return false;
         $this->checkImageFolder($this->id);
+        $files = Storage::files('event_image/'.$this->id);
+        foreach ($files as $item) {
+            Storage::delete($item);
+        }
         Storage::put('event_image/'.$this->id, $value);
     }  
 
