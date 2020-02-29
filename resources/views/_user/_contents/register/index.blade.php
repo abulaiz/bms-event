@@ -2,106 +2,162 @@
 @section('title', 'Register | BMS')
 
 @section('header')
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-        	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
-			<div class="container">
-				<div class="banner_content text-center">
-					<h2>Register</h2>
-					<div class="page_link">
-						<a href="/">Home</a>
-						<a href="{{ route('register') }}">Register</a>
-					</div>
-				</div>
-			</div>
+    <div class="hero-wrap hero-bread" style="background-image: url('user/images/bg_6.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Register</span></p>
+            <h1 class="mb-0 bread">Register</h1>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 @endsection
 
 @section('body')
-    <section class="contact_area p_120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                        <div class="col-md-12">
-                            <h5>Data Diri</h5>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="full-name" name="full_name" placeholder="Nama Lengkap">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="nick-name" name="nick_name" placeholder="Nama Panggilan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="ttl" name="ttl" placeholder="Tempat Tanggal Lahir">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="address" id="address" rows="1" placeholder="Alamat"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Whatsapp / Phone">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="instagram" name="instagram" placeholder="Instagram">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Data Pekerjaan</h5>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="instansi" name="instansi" placeholder="Instansi">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="masa-jabatan" name="masa_jabatan" placeholder="Masa Jabatan">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Analisa Personal</h5>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="kekuatan" name="kekuatan" placeholder="Kekuatan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="kelemahan" name="kelemahan" placeholder="Kelemahan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="peluang" name="peluang" placeholder="Peluang">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="tantangan" name="tantangan" placeholder="Tantangan">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Cerita Singkat Tentang Pribadi</h5>
-                            <div class="form-group">
-                                <textarea class="form-control" name="cerita" id="cerita" rows="1" placeholder="Cerita Singkat Pribadi"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h5>Harapan</h5>
-                            <div class="form-group">
-                                <textarea class="form-control" name="harapan_hidup" id="harapan-hidup" rows="1" placeholder="Harapan Terbesar Dalam Hidup"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="harapan_event" id="harapan-event" rows="1" placeholder="Harapan Mengikuti Pelatihan"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12 text-right">
-                            <button type="submit" value="submit" class="btn submit_btn">Register</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 ftco-animate">
+			<form action="#" class="billing-form">
+				<h3 class="mb-4 billing-heading">Data Diri</h3>
+	        	<div class="row align-items-end">
+	          		<div class="col-md-6">
+	            		<div class="form-group">
+	            			<label for="firstname">Nama Lengkap</label>
+	              			<input type="text" class="form-control" placeholder="Nama Lengkap">
+	            		</div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="form-group">
+	            			<label for="lastname">Nama Panggilan</label>
+	              			<input type="text" class="form-control" placeholder="Nama Panggilan">
+	            		</div>
+                	</div>
+                	<div class="col-md-6">
+	            		<div class="form-group">
+	            			<label for="firstname">Tempat Tanggal Lahir</label>
+	              			<input type="date" class="form-control" placeholder="Tempat Tanggal Lahir">
+	            		</div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="form-group">
+	            			<label for="lastname">Email</label>
+	              			<input type="email" class="form-control" placeholder="Email">
+	            		</div>
+                	</div>
+                	<div class="w-100"></div>
+		        	<div class="col-md-12">
+		        		<div class="form-group">
+		        			<label for="country">Alamat</label>
+		        			<textarea class="form-control" name="address" id="address" rows="5" placeholder="Alamat"></textarea>
+		        		</div>
+		        	</div>
+		        	<div class="w-100"></div>
+		        	<div class="col-md-6">
+		        		<div class="form-group">
+	            			<label for="streetaddress">WhatsApp / Phone</label>
+	              			<input type="text" class="form-control" placeholder="WhatsApp / Phone">
+	            		</div>
+		        	</div>
+		        	<div class="col-md-6">
+		        		<div class="form-group">
+                    		<label for="streetaddress">Instagram</label>
+	              			<input type="text" class="form-control" placeholder="Instagram">
+	            		</div>
+		        	</div>
+		        	<div class="w-100"></div>
+		        	<div class="col-md-6">
+		        		<div class="form-group">
+	            			<label for="towncity">Twitter</label>
+	              			<input type="text" class="form-control" placeholder="Twitter">
+	            		</div>
+		        	</div>
+		        	<div class="col-md-6">
+		        		<div class="form-group">
+		        			<label for="postcodezip">Facebook</label>
+	             			<input type="text" class="form-control" placeholder="Facebook">
+	            		</div>
+		        	</div>
+				</div>
+				<h3 class="mb-4 billing-heading">Data Pekerjaan</h3>
+	        	<div class="row align-items-end">
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label for="firstname">Instansi</label>
+	             			<input type="text" class="form-control" placeholder="Instansi">
+	        			</div>
+	        		</div>
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label for="lastname">Jabatan</label>
+	             			<input type="text" class="form-control" placeholder="Jabatan">
+	        			</div>
+            		</div>
+            		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Masa Kerja</label>
+	             			<input type="text" class="form-control" placeholder="Masa Kerja">
+	        			</div>
+	        		</div>
+		        </div>    
+				<h3 class="mb-4 billing-heading">Analisa Personal</h3>
+	        	<div class="row align-items-end">
+	        		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Kekuatan</label>
+	             			<input type="text" class="form-control" placeholder="Kekuatan">
+	        			</div>
+	        		</div>
+	        		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="lastname">Kelemahan</label>
+	             			<input type="text" class="form-control" placeholder="Kelemahan">
+	        			</div>
+            		</div>
+            		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Peluang</label>
+	             			<input type="text" class="form-control" placeholder="Peluang">
+	        			</div>
+	        		</div>
+					<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Tantangan</label>
+	             			<input type="text" class="form-control" placeholder="Tantangan">
+	        			</div>
+	        		</div>
+		        </div>    
+				<h3 class="mb-4 billing-heading">Cerita Singkat Tentang Pribadi</h3>
+	        	<div class="row align-items-end">
+	        		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Cerita Singkat</label>
+							<textarea class="form-control" name="cerita" id="cerita" rows="5" placeholder="Cerita Singkat"></textarea>
+	        			</div>
+	        		</div>
+		        </div>    
+				<h3 class="mb-4 billing-heading">Harapan</h3>
+	        	<div class="row align-items-end">
+	        		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Harapan Terbesar Dalam Hidup</label>
+							<textarea class="form-control" name="harapan_hidup" id="harapan-hidup" rows="5" placeholder="Harapan Terbesar Dalam Hidup"></textarea>
+	        			</div>
+	        		</div>
+					<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label for="firstname">Harapan Mengikuti Pelatihan</label>
+							<textarea class="form-control" name="harapan_pelatihan" id="harapan-pelatihan" rows="5" placeholder="Harapan Mengikuti Pelatihan"></textarea>
+	        			</div>
+	        		</div>
+					<div class="col-md-12">
+						<a href="#"class="btn btn-primary py-3 px-4">Register</a>
+	        		</div>
+		        </div> 
+	        </form><!-- END -->
+          </div> <!-- .col-md-8 -->
         </div>
-    </section>
+      </div>
+    </section> <!-- .section -->
 @endsection

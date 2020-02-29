@@ -1,158 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="{{ URL::asset('user/image/png') }}">
-        <title>@yield('title')</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ URL::asset('user/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/linericon/style.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/owl-carousel/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/lightbox/simpleLightbox.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/nice-select/css/nice-select.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/animate-css/animate.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/vendors/jquery-ui/jquery-ui.css') }}">
-        <!-- main css -->
-        <link rel="stylesheet" href="{{ URL::asset('user/css/style.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('user/css/responsive.css') }}">
-    </head>
-    <body>
-        
-        <!--================Header Menu Area =================-->
-        <header class="header_area">
-            <div class="logo_part">
-            	<div class="container">
-            		<div class="float-left">
-						<a class="logo" href="#"><img src="{{ URL::asset('user/img/logo.png') }}" alt=""></a>
-					</div>
-            	</div>
+  <head>
+    <title>@yield('title')</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ URL::asset('user/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/animate.css') }}">
+    
+    <link rel="stylesheet" href="{{ URL::asset('user/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/magnific-popup.css') }}">
+
+    <link rel="stylesheet" href="{{ URL::asset('user/css/aos.css') }}">
+
+    <link rel="stylesheet" href="{{ URL::asset('user/css/ionicons.min.css') }}">
+
+    <link rel="stylesheet" href="{{ URL::asset('user/css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/jquery.timepicker.css') }}">
+
+    
+    <link rel="stylesheet" href="{{ URL::asset('user/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/style.css') }}">
+  </head>
+  <body class="goto-here">
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/">BMS Event</a>
+
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    @yield('header')
+    
+    @yield('body')
+    
+
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Minishop</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
             </div>
-        </header>
-        <!--================Header Menu Area =================-->
-        
-        <!--================Home Banner Area =================-->
-
-        @yield('header')
-
-        <!--================End Home Banner Area =================-->
-        
-        @yield('body')
-        
-        <!--================ start footer Area  =================-->	
-        <footer class="footer-area">
-            <div class="container">
-                <div class="row f_widgets_inner">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-widget ab_widgets">
-                           <img src="img/footer-logo.png" alt=""> 
-                           <p>Technology and gadgets Adapter (MPA) is our favorite iPhone solution, since it lets you use the headphones you’re most comfortable with. It has an iPhone-compatible jack at one end and a microphone module with an Answer/End/Pause button and a female 3.5mm audio jack for connectingheadphones</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <div class="f_title">
-                            	<h3>Quick Links</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <ul class="list">
-                                        <li><a href="#">Sitemaps</a></li>
-                                        <li><a href="#">Categories</a></li>
-                                        <li><a href="#">Archives</a></li>
-                                        <li><a href="#">Advertise</a></li>
-                                        <li><a href="#">Ad Choice</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-6">
-                                    <ul class="list">
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                        <li><a href="#">Help Center</a></li>
-                                        <li><a href="#">Newsletters</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                    </ul>
-                                </div>										
-                            </div>							
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-footer-widget m_news_widgets">
-                            <div class="f_title">
-                            	<h3>Most Viewed News</h3>
-                            </div>
-                            <div class="m_news">
-                            	<div class="media">
-                            		<div class="d-flex">
-                            			<img src="img/product/product-13.jpg" alt="">
-                            		</div>
-                            		<div class="media-body">
-                            			<a href="#"><h4>Converter Ipod Video Taking Portable Video Viewing To A Whole Level</h4></a>
-                            			<div class="date">
-											<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a>
-											<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a>
-										</div>
-                            		</div>
-                            	</div>
-                            	<div class="media">
-                            		<div class="d-flex">
-                            			<img src="img/product/product-14.jpg" alt="">
-                            		</div>
-                            		<div class="media-body">
-                            			<a href="#"><h4>Sony Laptops Are Still Part Of The Sony Family</h4></a>
-                            			<div class="date">
-											<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>March 14, 2018</a>
-											<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>05</a>
-										</div>
-                            		</div>
-                            	</div>
-                            </div>
-                        </div>
-                    </div>	
-                </div>
-                <div class="row footer-bottom d-flex justify-content-between align-items-center">
-                   	<div class="col-lg-12">
-                   		<div class="f_boder"></div>
-                   	</div>
-                    <p class="col-lg-8 col-md-8 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    <div class="col-lg-4 col-md-4 footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                        <a href="#"><i class="fa fa-rss"></i></a>
-                    </div>
-                </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Shop</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
             </div>
-        </footer>
-		<!--================ End footer Area  =================-->
-        
-        
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ URL::asset('user/js/jquery-3.2.1.min.js') }}"></script>
-        <script src="{{ URL::asset('user/js/popper.js') }}"></script>
-        <script src="{{ URL::asset('user/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('user/js/stellar.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/lightbox/simpleLightbox.min.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/isotope/isotope-min.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-        <script src="{{ URL::asset('user/vendors/jquery-ui/jquery-ui.js') }}"></script>
-        <script src="{{ URL::asset('user/js/jquery.ajaxchimp.min.js') }}"></script>
-        <script src="{{ URL::asset('user/js/mail-script.js') }}"></script>
-        <script src="{{ URL::asset('user/js/theme.js') }}"></script>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+	              </ul>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+	                <li><a href="#" class="py-2 d-block">Contact</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
+  <script src="{{ URL::asset('user/js/jquery.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/popper.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/bootstrap.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/aos.js') }}"></script>
+  <script src="{{ URL::asset('user/js/jquery.animateNumber.min.js') }}"></script>
+  <script src="{{ URL::asset('user/js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ URL::asset('user/js/scrollax.min.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{{ URL::asset('user/js/google-map.js') }}"></script>
+  <script src="{{ URL::asset('user/js/main.js') }}"></script>
 
-        @yield('additionalScripts')
-
-    </body>
+  @yield('additionalScripts')
+    
+  </body>
 </html>
