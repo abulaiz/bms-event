@@ -63,7 +63,7 @@ Table = $('#datatable').DataTable({
         {data: 'name', name: 'name'},
         {data: 'place', name: 'place'},
         {data: 'agency', name: 'agency'},
-        {data: 'status', name: 'status'},
+        {data: '_status', name: '_status'},
         {data: 'action', name: 'action', orderable: false, searchable: false},
         {data: 'started_date', name: 'started_date', searchable: false},
     ],    

@@ -10,6 +10,7 @@ use App\Models\ParticipantJob;
 use App\Models\ParticipantPersonality;
 use App\Libs\MyEmail;
 use Validator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class EventRegisterController extends Controller
 {
@@ -69,6 +70,9 @@ class EventRegisterController extends Controller
 	    ]);
 
         $flag = strtoupper(uniqid());
+        
+        QrCode::format('png')->size(1024)->generate($flag, storage_path('app/qrcode/'.$flag.'.png'));
+
         $qrcode_path = route('qrcode.out', (new SimpleEnc())->encrypt($flag) );
 
         while (Event::where('flag', $flag)->exists()) {

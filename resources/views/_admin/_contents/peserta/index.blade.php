@@ -15,65 +15,81 @@
         </div>
       </div>
     </div>
-    <div class="content-header-right col-md-6 col-12">
-        <select class="select2 form-control relative col-md-5 col-12 float-right p-0">
-            <option value="">All</option>
-            <option value="PP">Pelatihan Pernikahan</option>
-        </select>
-    </div>
 @endsection
 
 @section('body')
     <section id="configuration">
       <div class="row">
+        <div class="col-12" id="removed-info">
+          <div class="alert alert-icon-left mb-2 bg-info" role="alert">
+            <span class="alert-icon"><i class="fa fa-info-circle"></i></span>
+            Pilih Acara terlebih dahulu.
+          </div>       
+        </div>
         <div class="col-12">
-          <div class="card">
+            <select class="selectizes">
+              <option value="">--Pilih Acara--</option>
+            </select> 
+        </div>   
+        <div class="col-12">
+          <div class="loader-wrapper" id="table-loader">
+            <div class="loader-container">
+              <div class="ball-beat loader-info">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>       
+          <div class="card" id="table-card" style="opacity: 0;">
             <div class="card-header">
               <h4 class="card-title">Data Peserta</h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
             </div>
             <div class="card-content collapse show">
-              <div class="card-body card-dashboard">
-                <table class="table table-striped table-bordered zero-configuration" id="datatable">
-                  <thead>
-                    <tr>
-                      <th>Nama Lengkap</th>
-                      <th>No. HP / WA</th>
-                      <th>Email</th>
-                      <th>Instansi</th>
-                      <th>Jabatan</th>
-                      <th>Status Kehadiran</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                        <td><a href="#">Tachibana Kanade</a></td>
-                        <td>081234567890</td>
-                        <td>best@waifu.net</td>
-                        <td>Anime</td>
-                        <td>Waifu</td>
-                        <td><i class="fa fa-check success"></i></td>
-                        <td class="action-menu"">
-                                <button type="button" class="btn btn-outline-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
-                                <div class="dropdown-menu" x-placement="bottom-start">   
-                                    <a data-backdrop="static" data-keyboard="false" class="dropdown-item">Generate ID Card</a>
-                                    <a data-backdrop="static" data-keyboard="false" class="dropdown-item">Kirim E-Serifikat</a>
-                                </div>
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="card-body">
+                <div class="table-responsive table-data">
+                  <table class="table table-bordered table-hover" id="datatable">
+                    <thead>
+                      <tr>
+                        <th>Nama Lengkap</th>
+                        <th>No. HP / WA</th>
+                        <th>Email</th>
+                        <th>Instansi</th>
+                        <th>Jabatan</th>
+                        <th>Kehadiran</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>                
               </div>
             </div>
-          </div>
+          </div>         
         </div>
-      </div>
+      </div>    
     </section>
+
+    <div class="hidden rm">
+      <p id="url-api-event-list">{{ route('api.event.list') }}</p>
+      <p id="url-api-participant-index">{{ route('api.participant.index', '0') }}</p>
+    </div>    
 @endsection
 
 @section('additionalScripts')
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/selects/select2.min.css') }}">
-    <script src="{{ URL::asset('admin/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
-    <script src="{{ URL::asset('admin/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/plugins/loaders/loaders.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/core/colors/palette-loader.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/tables/datatable/datatables.min.css') }}">
+  <script src="{{ URL::asset('admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/vendors/css/forms/selects/selectize.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/vendors/css/forms/selects/selectize.default.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/plugins/forms/selectize/selectize.css')}}">
+  <script src="{{URL::asset('admin/vendors/js/forms/select/selectize.min.js')}}" type="text/javascript"></script>  
+
+  <script type="text/javascript" src="{{ URL::asset('js/view/peserta/index.js?').uniqid() }}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/additional/cleanSelectize.js')}}"></script>
 @endsection

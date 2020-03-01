@@ -23,6 +23,8 @@ class CreateEventsTable extends Migration
             $table->string('agency');
             $table->char('type', 1); // 1 : Public, 2 : Private / InHouse
             $table->string('flag')->nullable();
+            $table->date('last_attendance')->nullable();
+            $table->smallInteger('attendance_count')->default(0); // Jumlah Hitungan Kehadiran
             $table->timestamps();
         });
     }

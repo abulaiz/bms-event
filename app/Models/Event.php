@@ -10,7 +10,7 @@ class Event extends Model
 {
     protected $guarded = [''];
 
-    protected $appends = ['image'];
+    protected $appends = ['image', 'status'];
 
     public static function boot() {
         parent::boot();
@@ -35,6 +35,16 @@ class Event extends Model
         if(count($files) == 0) return URL::asset('noimage.png');
         else return route('event.image', $this->id);
     }    
+
+    public function getStatusAttribute(){
+        $now = strtotime( date('Y-m-d') );
+        if( $now > strtotime($this->ended_date) )
+            return 3; // Selesai
+        elseif($now < strtotime($this->started_date))
+            return 2; // Cooming Soon
+        else
+            return 1; // Berlangsung        
+    }
 
     public function setImageAttribute($value)
     {

@@ -26,7 +26,6 @@ class CreateParticipantsTable extends Migration
             $table->string('instagram');
             $table->string('twitter');
             $table->string('facebook');
-            $table->datetime('attendance_at')->nullable();
             $table->timestamps();
         });
 
@@ -47,6 +46,13 @@ class CreateParticipantsTable extends Migration
             $table->text('short_story');
             $table->text('hope_in_life');
             $table->text('hope_in_training');
+            $table->timestamps();
+        });
+
+        Schema::create('participant_attendances', function(Blueprint $table) {
+            $table->unsignedInteger('participant_id');
+            $table->unsignedInteger('event_id');
+            $table->char('status', 1); // 1 : Pagi , 2 : Siang
             $table->timestamps();
         });
     }

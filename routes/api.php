@@ -13,11 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
+// Event API`S
 Route::get('event/active', 'EventController@active_event')->name('api.event.active');
 Route::get('event/detail/{id}', 'EventController@detail')->name('api.event.detail');
-Route::post('event/paginated', 'EventController@paginated_list')->name('api.event.list');
+Route::post('event/paginated', 'EventController@paginated_list')->name('api.event.paginated_list');
+Route::get('event/list', 'EventController@list')->name('api.event.list');
 Route::resource('event', 'EventController', ['as' => 'api'])->except(['create']);
+
+// Participant API`S
+Route::get('participant/{event_id}', 'ParticipantController@index')->name('api.participant.index');
+
+// Attendances API`S
+Route::post('attendances/scan', 'AttendanceController@setAttendance')->name('api.scan');
+Route::get('attendances/{event_id}', 'AttendanceController@attendanceList')->name('api.scan.list');
