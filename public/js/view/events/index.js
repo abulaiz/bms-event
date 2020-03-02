@@ -1,6 +1,7 @@
 var Table;
 var _URL = [];
 _URL['index'] = $("#url-api-events").text();
+_URL['generate_nametag'] = $("#url-api-nametags-generate").text();
 _URL['delete'] = $("#form-delete").attr('action');
 _URL['update'] = $("#form-update").attr('action');
 
@@ -122,4 +123,43 @@ function previewFile(e) {
   } else {
     preview.src = "";
   }
+}
+
+var participants = [];
+var s_count = 0;
+
+function generate_nametags(params){
+	$.post(_URL.generate_nametag,params
+	,function(data){
+		if(data.flag == '1'){
+			participants = data.participants;
+			s_count = 0;
+			$("#generate-nametag-fetch").hide();
+			$("#generate-nametag-progress").show();
+
+			$("#generate-nametag-caption-from").text("1");
+			$("#generate-nametag-caption-to").text(participants.length);
+			generate_nametags({event_id : params.event_id, participant_id : participants[s_count]});
+		} else if (data.flag == '2'){
+			s_count++;
+			$("#generate-nametag-caption-from").text(s_count+1);
+			let download = s_count == participants.length-1;
+			generate_nametags({event_id : params.event_id, participant_id : participants[s_count], download : download});
+		} else if (data.flag == '3'){
+			window.open(data.download_link, '_blank');
+			$("#generate-nametag").modal('toggle');
+
+		}
+	});		
+}
+
+function _nametags(e){
+	$("#generate-nametag").modal({
+		show : true, backdrop: 'static', keyboard: false
+	});	
+	$("#generate-nametag-fetch").show();
+	$("#generate-nametag-progress").hide();
+
+	let data = Table.row($(e).parents('tr')).data();
+	generate_nametags({event_id : data.id, get_participants : true});
 }

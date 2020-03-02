@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Chumper\Zipper\ZipperServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -232,6 +232,7 @@ return [
         'Datatables' => Yajra\DataTables\Facades\DataTables::class,
         'SimpleEnc' => App\Libs\SimpleEnc::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Zipper' => Chumper\Zipper\Zipper::class,
     ],
 
 ];

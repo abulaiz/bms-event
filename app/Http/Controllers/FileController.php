@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use SimpleEnc;
+use Response;
+use App\Models\Event;
 
 class FileController extends Controller
 {
@@ -35,5 +37,19 @@ class FileController extends Controller
         $file = Storage::get('qrcode/'.$flag.'.png');
 
         return response($file)->header('Content-Type', 'image/png');
+    }
+
+    public function nametag_download($event_id_code){
+        $event = Event::find( (new SimpleEnc())->decrypt($event_id_code) );
+        if($event == null)
+            return 'Not Found';
+
+        $filename = $event->id."_".$event->name."_Name_Tags.zip";
+        $file = 'event_nametags/'.$event->id."/".$filename;
+        if(Storage::exists($file)){
+            return Response::download(storage_path('app/'.$file) , $filename, ["Content-Type: application/octet-stream"]);    
+        } else {
+            return 'Not Found';
+        }
     }
 }
