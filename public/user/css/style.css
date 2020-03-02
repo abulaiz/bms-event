@@ -8952,7 +8952,7 @@ h1, h2, h3, h4, h5,
       .product .text p.price span.price-sale {
         color: #000000; }
     .product .text .cat, .product .text .rating {
-      width: 50%; }
+      width: 100%; }
     .product .text .cat span {
       font-size: 12px;
       text-transform: uppercase;
