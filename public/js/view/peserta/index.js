@@ -8,10 +8,12 @@ var s = selectizes[0].selectize;
 
 var Table = null;
 var statuses = [];
+var event_statuses = ['Berlangsung', 'Cooming Soon', 'Selesai'];
 
 function getOptions(status, id){
+	$("#event-status-caption").text( event_statuses[ Number(status)-1 ] );
 	let colomnDefs = [{ targets : 5, className : 'text-center' }];
-	if(Number(status) != 2)
+	if(Number(status) == 2)
 		colomnDefs.push({targets : [5], visible : false});
 	return {
 	    processing: true,

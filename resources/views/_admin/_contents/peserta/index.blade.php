@@ -42,12 +42,13 @@
             </div>
           </div>       
           <div class="card" id="table-card" style="opacity: 0;">
-            <div class="card-header">
+            <div class="card-header" style="padding-bottom: unset;">
               <h4 class="card-title">Data Peserta</h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
+                <p>Status Acara : <strong id="event-status-caption">Cooming Soon</strong></p>
                 <div class="table-responsive table-data">
                   <table class="table table-bordered table-hover" id="datatable">
                     <thead>
