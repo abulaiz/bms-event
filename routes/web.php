@@ -28,3 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/register', function() {
     return view('_user._contents.register.index');
 })->name('register');
+
+Route::get('/serti', function() {
+    return view('_emails.certificate');
+});
