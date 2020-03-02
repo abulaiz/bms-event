@@ -73,8 +73,12 @@
 					$x = $this->getText($x, $length);
 				}			
 				for($i=0; $i<strlen($x); $i+=2){
-					$ii = $this->getPos($x[$i]);
-					$iii = $this->getPos($x[$i+1]);
+					try {
+						$ii = $this->getPos($x[$i]);
+						$iii = $this->getPos($x[$i+1]);						
+					} catch (Exception $e) {
+						return null;
+					}
 
 					$sisa = $iii % 10;
 					$p = ($iii - $sisa) / 10;
@@ -86,31 +90,5 @@
 			}
 
 			return $in;
-		}
-
-		public function attch_enc($id, $filename){
-			$u = $this->encrypt($user_id);
-			$i = $this->encrypt($filename);
-			$ul = strlen($u);
-			$r_pos = rand(2, 9);
-			$str = substr($i, 0, $r_pos) . $u . substr($i, $r_pos) ."_".$ul.chr($r_pos+64);
-			return $str; 
-		}
-
-		public function attch_dec($code){
-			$x = explode('_', $code);
-			if( count($x) != 2 ) return null;
-			$r_pos = ord($x[1][ strlen($x[1]) - 1 ]) - 64;
-			$ul = substr($x[1], 0, strlen($x[1]) - 1);
-
-			$u = '';
-			try {
-				$u = $this->decrypt( substr($x[0], $r_pos, $ul) );
-				$i = $this->decrypt( substr($x[0], 0, $r_pos).substr($x[0], $r_pos+$ul) );
-			} catch (Exception $e) {
-				return null;
-			}
-
-			return (object)['id' => $u, 'filename' => $i];
 		}
 	}

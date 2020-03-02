@@ -4,27 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Participant;
+use App\Models\Event;
 use Datatables;
 
 class ParticipantController extends Controller
 {
-    public function index(){
-        return Datatables::of(Participant::all())
+    public function index($event_id){
+        $event = Event::find($event_id);
+        if($event == null)
+            return response()->json([]);
+
+        return Datatables::of(Participant::where('event_id', $event_id)->with('job')->with('personality')->get())
                             ->addIndexColumn()
                             ->addColumn('action', function($row){
-                                return '';
+                                return View('_admin._contents.peserta._partitions.index_action');
                             })
-                            ->addColumn('status', function($row){ // 1 : Comming Sonn. 2 : Berlangsung, 3 : Selesai
-                                $status = ''; $id = $row->id;
-                                if( $now > strtotime($row->ended_date) )
-                                    $status = 3;
-                                elseif($now < strtotime($row->started_date))
-                                    $status = 1;
-                                else
-                                    $status = 2;
-                                return View('_admin._contents.event._partitions.status', compact('status', 'id'))->render();
+                            ->addColumn('status', function($row){
+                                $status = $row->status;
+                                return View('_admin._contents.peserta._partitions.index_status', compact('row', 'status'));
                             })
-                            ->addColumn('_type', function($row){ return $row->type == '1' ? 'Umum' : 'Private'; })
+                            ->rawColumns(['status', 'action'])
                             ->make(true);      	
     }
 }

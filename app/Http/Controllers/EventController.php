@@ -10,24 +10,16 @@ use Datatables;
 class EventController extends Controller
 {
     public function index(){
-        $now = strtotime( date('Y-m-d') );
         return Datatables::of(Event::orderByDesc('started_date')->get())
                             ->addIndexColumn()
                             ->addColumn('action', function($row){
                                 return View('_admin._contents.events._partitions.index_action')->render();
                             })
-                            ->addColumn('status', function($row) use ($now){ // 1 : Comming Sonn. 2 : Berlangsung, 3 : Selesai
-                                $status = ''; $id = $row->id;
-                                if( $now > strtotime($row->ended_date) )
-                                    $status = 3;
-                                elseif($now < strtotime($row->started_date))
-                                    $status = 1;
-                                else
-                                    $status = 2;
-                                return View('_admin._contents.events._partitions.index_status', compact('status', 'id'))->render();
+                            ->addColumn('_status', function($row){ 
+                                return View('_admin._contents.events._partitions.index_status', compact('row'))->render();
                             })
                             ->addColumn('_type', function($row){ return $row->type == '1' ? 'Umum' : 'Private'; })
-                            ->rawColumns(['status', 'action'])
+                            ->rawColumns(['_status', 'action'])
                             ->make(true);        
     }
 
@@ -54,6 +46,11 @@ class EventController extends Controller
         $res = $data->skip( ($request->paginate_position-1)*$max_per_paginate )->take( $max_per_paginate )->get();
 
         return response()->json(['data' => $res, 'paginate_count' => $paginate_count]);
+    }
+
+    public function list(){
+        $data = Event::orderBy('name')->get();
+        return response()->json($data);
     }
 
     public function detail($id){
@@ -91,10 +88,26 @@ class EventController extends Controller
             'type' => $request->type
 	    ]);
 
+        if($request->type == '2'){
+            $o_flag = strtolower($request->name);
+            $o_flag = str_replace(' ', '-', $o_flag);
+            $flag = $o_flag;
+            $f_count = 1;
+            while ( Event::where('flag', $flag)->exists() ) {
+                $flag = $o_flag.'-'.$f_count;
+                $f_count++;
+            } 
+            $event->update(['flag' => $flag]);           
+        }
+
 	    $event->update(['image' => $img]);
 
 	    return response()->json(['success' => true]);
 
+    }
+
+    public function edit($id){
+        die($id);
     }
 
     public function update(Request $request, $id){
@@ -123,6 +136,18 @@ class EventController extends Controller
             'type' => $request->type
         ]);
 
+        if($request->type == '2' && ($event->flag == null || $event->flag == "") ){
+            $o_flag = strtolower($request->name);
+            $o_flag = str_replace(' ', '-', $o_flag);
+            $flag = $o_flag;
+            $f_count = 1;
+            while ( Event::where('flag', $flag)->exists() ) {
+                $flag = $o_flag.'-'.$f_count;
+                $f_count++;
+            } 
+            $event->update(['flag' => $flag]);           
+        }        
+
         $event->update(['image' => $img]);
 
         return response()->json(['success' => true]);
@@ -142,6 +167,6 @@ class EventController extends Controller
         $data = Event::where('started_date', '<=', $now)
                        ->where('ended_date', '>=', $now)
                        ->get();
-        return reponse()->json($data);
+        return response()->json($data);
     }
 }

@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Libs\MyEmail;
+use Storage;
+use Mail;
 
 class TestEmail extends Command
 {
@@ -11,7 +14,7 @@ class TestEmail extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'test:email';
 
     /**
      * The console command description.
@@ -37,6 +40,23 @@ class TestEmail extends Command
      */
     public function handle()
     {
-        //
+        // $mail_data = [
+        //     'name'=> 'Ano Ne',
+        //     'email'=> 'halimabuabu@gmail.com',
+        //     'to'=> 'halimabuabu@gmail.com',
+        //     'subject'=> 'Email Testing' 
+        // ];
+
+        // $email_data = [
+        //     'data' => $mail_data,
+        //     'template' => '_emails.test',
+        //     'attachment' => Storage::get('test.pdf'),
+        //     'attachment_name' => 'Tesing.pdf'
+        // ];
+
+        // $e = new MyEmail();
+        // $sent = $e->send($email_data);
+        
+        Mail::to('halimabuabu@gmail.com')->send(new \App\Mail\TestMail());
     }
 }
