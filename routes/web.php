@@ -30,5 +30,5 @@ Route::get('/register', function() {
 })->name('register');
 
 Route::get('/serti', function() {
-    return view('_emails.certificate');
+    return view('_emails.ticket');
 });
