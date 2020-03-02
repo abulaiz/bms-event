@@ -26,3 +26,6 @@ Route::get('participant/{event_id}', 'ParticipantController@index')->name('api.p
 // Attendances API`S
 Route::post('attendances/scan', 'AttendanceController@setAttendance')->name('api.scan');
 Route::get('attendances/{event_id}', 'AttendanceController@attendanceList')->name('api.scan.list');
+
+// Generate PDF File API'S
+Route::post('nametags/generate', 'PdfController@generate_nametags')->name('api.nametags.generate');

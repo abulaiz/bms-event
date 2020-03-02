@@ -56,9 +56,11 @@
     @include('_admin._contents.events._modals.add')
     @include('_admin._contents.events._modals.edit')
     @include('_admin._contents.events._modals.detail')
+    @include('_admin._contents.events._modals.generate_nametag_progress')
 
     <div class="hidden rm">
       <p id="url-api-events">{{ route('api.event.index') }}</p>
+      <p id="url-api-nametags-generate">{{ route('api.nametags.generate') }}</p>
     </div>
 
     <form id="form-delete" action="{{ route('api.event.destroy', 0) }}" method="post">
@@ -68,8 +70,11 @@
 @endsection
 
 @section('additionalScripts')
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/tables/datatable/datatables.min.css') }}">
-    <script src="{{ URL::asset('admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/tables/datatable/datatables.min.css') }}">
+  <script src="{{ URL::asset('admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/plugins/loaders/loaders.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/core/colors/palette-loader.css')}}">
 
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/icheck.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/vendors/css/forms/icheck/custom.css')}}">

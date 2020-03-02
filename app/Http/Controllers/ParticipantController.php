@@ -16,12 +16,11 @@ class ParticipantController extends Controller
 
         return Datatables::of(Participant::where('event_id', $event_id)->with('job')->with('personality')->get())
                             ->addIndexColumn()
-                            ->addColumn('action', function($row){
-                                return View('_admin._contents.peserta._partitions.index_action');
+                            ->addColumn('action', function($row) use ($event){
+                                return View('_admin._contents.peserta._partitions.index_action', compact('row', 'event'));
                             })
-                            ->addColumn('status', function($row){
-                                $status = $row->status;
-                                return View('_admin._contents.peserta._partitions.index_status', compact('row', 'status'));
+                            ->addColumn('status', function($row) use ($event){
+                                return View('_admin._contents.peserta._partitions.index_status', compact('row', 'event'));
                             })
                             ->rawColumns(['status', 'action'])
                             ->make(true);      	

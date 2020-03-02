@@ -32,7 +32,7 @@ class Event extends Model
     public function getImageAttribute()
     {
         $files = Storage::files('event_image/'.$this->id);
-        if(count($files) == 0) return URL::asset('noimage.png');
+        if(count($files) == 0) return URL::asset('noimage.jpg');
         else return route('event.image', $this->id);
     }    
 

@@ -9,14 +9,14 @@
         </li>
         <li class=" nav-item"><a href="{{ route('absensi') }}"><i class="icon-folder"></i><span class="menu-title" data-i18n="nav.category.general">Absensi</span></a>
         </li>
-        <li class=" nav-item"><a href="#"><i class="icon-screen-tablet"></i><span class="menu-title" data-i18n="nav.category.pages">Laporan</span></a>
+<!--         <li class=" nav-item"><a href="#"><i class="icon-screen-tablet"></i><span class="menu-title" data-i18n="nav.category.pages">Laporan</span></a>
           <ul class="menu-content">
                 <li><a class="menu-item" href="icons-feather.html" data-i18n="nav.icons.icons_feather">Event</a>
                 </li>
                 <li><a class="menu-item" href="icons-font-awesome.html" data-i18n="nav.icons.icons_font_awesome">Peserta</a>
                 </li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
