@@ -24,5 +24,5 @@ Route::group(['middleware' => ['auth']], function () {
 include 'web/landing_page.php';
 
 Route::get('/serti', function() {
-    return view('_emails.certificate');
+    return view('_emails.ticket');
 });
