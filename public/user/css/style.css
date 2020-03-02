@@ -8522,7 +8522,9 @@ h1, h2, h3, h4, h5,
     position: relative;
     height: 750px;
     z-index: 0;
-    background: #dbcc8f; }
+    background-image: url('../images/hd_1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
@@ -8952,7 +8954,7 @@ h1, h2, h3, h4, h5,
       .product .text p.price span.price-sale {
         color: #000000; }
     .product .text .cat, .product .text .rating {
-      width: 50%; }
+      width: 100%; }
     .product .text .cat span {
       font-size: 12px;
       text-transform: uppercase;
