@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-6">
               <center>
-                  <img id="edit-event-image" onclick="_triger(this)" src="{{ URL::asset('noimage.png') }}" style="height: 360px; max-width: 360px;">
+                  <img id="edit-event-image" onclick="_triger(this)" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
               </center>
               <center>
                    <a onclick="_triger(this)" class="btn btn-primary ml-1 text-white" style="margin-top: 10px;">

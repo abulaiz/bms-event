@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-6">
               <center>
-                  <img onclick="_triger(this)" src="{{ URL::asset('noimage.png') }}" style="height: 360px; max-width: 360px;">
+                  <img onclick="_triger(this)" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
               </center>
               <center>
                    <a onclick="_triger(this)" class="btn btn-success ml-1 text-white" style="margin-top: 10px;">
