@@ -28,7 +28,8 @@ class EventRegisterController extends Controller
     		'nick_name' => 'required|string|max:255',
     		'place_of_birth' => 'required|string|max:255',
     		'date_of_birth' => 'required|date',
-    		'phone' => 'required',
+            'phone' => 'required',
+    		'address' => 'required',
     		'email' => 'required|email|max:255',
     		'instagram' => 'required|max:255',
     		'twitter' => 'required|max:255',
@@ -45,15 +46,22 @@ class EventRegisterController extends Controller
     		'hope_in_training' => 'required'
     	]);
 
+        $validator->setAttributeNames([
+            'full_name' => 'Nama Lengkap', 'nick_name' => 'Nama Panggilan',
+            'place_of_birth' => 'Tempat Lahir', 'date_of_birth' => 'Tanggal Lahir',
+            'phone' => 'WhatsApp / Phone', 'address' => 'Alamat', 'position' => 'Jabatan',
+            'agency' => 'Instansi', 'years_of_service' => 'Masa Kerja', 'strength' => 'Kekuatan',
+            'weakness' => 'Kelemahan', 'opportunity' => 'Peluang', 'challenge' => 'Tantangan',
+            'short_story' => 'Cerita Singkat', 'hope_in_life' => 'Harapan dalam Hidup',
+            'hope_in_training' => 'Harapan mengikuti pelatihan'
+        ]);
+
 	    if( $validator->fails() )
 	    	return response()->json(['errors' => $validator->errors()->all(), 'success' => false]);
 
 	    $event = Event::find($request->event_id);
 	    if($event == null){
-	    	$event = Event::find( (new SimpleEnc())->decrypt($request->event_id) );
-	    	if($event == null){
-	    		return response()->json(['success' => false]);
-	    	}
+            return response()->json(['success' => false]);
 	    }
 
 	    $data = Participant::create([
@@ -62,7 +70,8 @@ class EventRegisterController extends Controller
     		'nick_name' => $request->nick_name,
     		'place_of_birth' => $request->place_of_birth,
     		'date_of_birth' => $request->date_of_birth,
-    		'phone' => $request->phone,
+            'phone' => $request->phone,
+    		'address' => $request->address,
     		'email' => $request->email,
     		'instagram' => $request->instagram,
     		'twitter' => $request->twitter,
@@ -108,7 +117,7 @@ class EventRegisterController extends Controller
 
         $email_data = [
             'data' => $mail_data,
-            'template' => '_emails.registration_success'
+            'template' => '_emails.ticket'
         ];
         // $sent = $this->myemail->send($email_data);
 

@@ -53,9 +53,10 @@ data-open="click" data-menu="vertical-compact-menu" data-col="1-column">
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <form class="form-horizontal form-simple" action="index.html" novalidate>
+                      <form class="form-horizontal form-simple" method="POST" action="{{ route('login') }}">
+                      @csrf
                       <fieldset class="form-group position-relative has-icon-left mb-0">
-                        <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Username"
+                        <input type="email" name="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Email"
                         required>
                         <div class="form-control-position">
                           <i class="ft-user"></i>
@@ -63,7 +64,7 @@ data-open="click" data-menu="vertical-compact-menu" data-col="1-column">
                       </fieldset>
                       <fieldset class="form-group position-relative has-icon-left">
                         <input type="password" class="form-control form-control-lg input-lg" id="user-password"
-                        placeholder="Enter Password" required>
+                        placeholder="Enter Password" name="password" required>
                         <div class="form-control-position">
                           <i class="fa fa-key"></i>
                         </div>
@@ -71,11 +72,11 @@ data-open="click" data-menu="vertical-compact-menu" data-col="1-column">
                       <div class="form-group row">
                         <div class="col-md-6 col-12 text-center text-md-left">
                           <fieldset>
-                            <input type="checkbox" id="remember-me" class="chk-remember">
+                            <input type="checkbox" name="remember" id="remember-me" class="chk-remember">
                             <label for="remember-me"> Remember Me</label>
                           </fieldset>
                         </div>
-                        <div class="col-md-6 col-12 text-center text-md-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                        <div class="col-md-6 col-12 text-center text-md-right"></div>
                       </div>
                       <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i> Login</button>
                     </form>

@@ -126,9 +126,11 @@
   <script src="{{ URL::asset('user/js/jquery.animateNumber.min.js') }}"></script>
   <script src="{{ URL::asset('user/js/bootstrap-datepicker.js') }}"></script>
   <script src="{{ URL::asset('user/js/scrollax.min.js') }}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{{ URL::asset('user/js/google-map.js') }}"></script>
-  <script src="{{ URL::asset('user/js/main.js') }}"></script>
+  <script src="{{ URL::asset('user/js/main.js?').uniqid() }}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/vendors/css/extensions/toastr.css')}}">
+  <script src="{{URL::asset('admin/vendors/js/extensions/toastr.min.js')}}" type="text/javascript"></script>
+  <script src="{{URL::asset('js/additional/leftToastr.js')}}" type="text/javascript"></script> 
 
   @yield('additionalScripts')
     

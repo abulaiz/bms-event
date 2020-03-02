@@ -26,12 +26,14 @@ class EventController extends Controller
 
     /**
      * Get List of event with pagination and searching
-     * @request filter_mode : true / false, // used for searching
-     * @request filter : 'searched event name' // if filter mode on
-     * @request paginate_position : 1 ... MAX_PAGINATION
+     * @request  - filter_mode : true / false, // used for searching
+     *           - filter : 'searched event name' // if filter mode on
+     *           - paginate_position : 1 ... MAX_PAGINATION
+     * @response - data // list of event
+     *           - paginate_count
      */
     public function paginated_list(Request $request){
-        $max_per_paginate = 5;
+        $max_per_paginate = 8;
 
         if($request->filter_mode == true || $request->filter_mode == 'true'){
             $filter = $request->filter;

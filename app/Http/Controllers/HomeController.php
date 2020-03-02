@@ -3,26 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+    public function event_register($id){
+        $event = Event::find($id);
+        if($event == null){
+            $e = Event::where('flag', $id)->get();
+            if(count($e) == 0)
+                return "Not Found";
+            $event = $e[0];
+        }
+        $id = $event->id;
+        return view('_user._contents.register.index', compact('event'));
+    }
+
+    public function event_detail($id){
+        $event = Event::find($id);
+        if($event == null)
+            return 'Not Found';
+        return view('_user._contents.events.detail', compact('event'));
     }
 }

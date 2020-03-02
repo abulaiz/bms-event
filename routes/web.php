@@ -11,23 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('_user._contents.events.index');
-});
+
 
 Auth::routes(['register' => false, 'reset' => false]);
 
 include 'web/filehandler.php';
 
-include 'web/admin.php';
+Route::group(['middleware' => ['auth']], function () {
+	include 'web/admin.php';
+});
 
 include 'web/landing_page.php';
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/register', function() {
-    return view('_user._contents.register.index');
-})->name('register');
 
 Route::get('/serti', function() {
     return view('_emails.certificate');

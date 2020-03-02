@@ -35,7 +35,8 @@
                 <span class="user-name">Admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                <a class="dropdown-item" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" href="{{ route('logout') }}"><i class="ft-power"></i> Logout</a>
               </div>
             </li>
           </ul>
@@ -43,3 +44,8 @@
       </div>
     </div>
   </nav>
+
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>

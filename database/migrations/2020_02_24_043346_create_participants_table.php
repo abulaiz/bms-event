@@ -19,6 +19,7 @@ class CreateParticipantsTable extends Migration
             $table->unsignedInteger('event_id');
             $table->string('full_name');
             $table->string('nick_name');
+            $table->text('address');
             $table->string('place_of_birth');
             $table->date('date_of_birth');
             $table->string('phone');

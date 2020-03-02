@@ -13,8 +13,10 @@ class ParticipantSeeder extends Seeder
      */
     public function run()
     {
+        shell_exec("sudo rm -rf storage/app/qrcode");
+        shell_exec("mkdir storage/app/qrcode");      	
     	$faker = Faker::create();
-        for($i = 0; $i < 50; $i++){
+        for($i = 0; $i < 100; $i++){
         	$request = new \Illuminate\Http\Request();
         	$nn = $faker->userName;
         	$request->replace([
@@ -32,6 +34,7 @@ class ParticipantSeeder extends Seeder
 	    		'position' => $faker->jobTitle,
 	    		'years_of_service' => rand(1, 10)." tahun",
 	    		'strength' => $faker->sentence($nbWords = 10, $variableNbWords = true),
+	    		'address' => $faker->sentence($nbWords = 10, $variableNbWords = true),
 	    		'weakness' => $faker->sentence($nbWords = 10, $variableNbWords = true),
 	    		'opportunity' => $faker->sentence($nbWords = 10, $variableNbWords = true),
 	    		'challenge' => $faker->sentence($nbWords = 10, $variableNbWords = true),
