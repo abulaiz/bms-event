@@ -23,6 +23,7 @@
   <!-- BEGIN Page Level CSS-->
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/core/menu/menu-types/vertical-compact-menu.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/core/colors/palette-gradient.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/core/colors/palette-callout.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('admin/css/pages/login-register.css') }}">
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
@@ -55,9 +56,20 @@ data-open="click" data-menu="vertical-compact-menu" data-col="1-column">
                   <div class="card-body">
                       <form class="form-horizontal form-simple" method="POST" action="{{ route('login') }}">
                       @csrf
+                      @if(session('errors'))
+                        @if ($errors->any())                      
+                          <div class="bs-callout-danger callout-border-left mt-1 p-1" style="margin-bottom: 10px; margin-top: 0px !important;">         
+                            <strong>Autentikasi Gagal</strong>
+                            <ul style="padding-left: 15px;">
+                              @foreach($errors->all() as $error)
+                              <li style="list-style : unset !important;">{{ $error }}</li>
+                              @endforeach
+                            </ul>
+                          </div> 
+                        @endif
+                      @endif                     
                       <fieldset class="form-group position-relative has-icon-left mb-0">
-                        <input type="email" name="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Email"
-                        required>
+                        <input type="email" name="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Email" required value="{{ old('email') }}">
                         <div class="form-control-position">
                           <i class="ft-user"></i>
                         </div>

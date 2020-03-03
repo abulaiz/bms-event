@@ -139,11 +139,11 @@
                                         <div style="width:100% !important;">
                                             <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:25px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                                                 <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                                                    <a style="outline:none" tabindex="-1"> <img align="center" alt="Image" border="0" class="center fixedwidth" src="{{ URL::asset('email/images/websiteQRCode_noFrame.png') }}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 652px; display: block;" title="Image" width="652"/></a>
+                                                    <a style="outline:none" tabindex="-1"> <img align="center" alt="Image" border="0" class="center fixedwidth" src="{{ $qrcode_path }}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 652px; display: block;" title="Image" width="652"/></a>
                                                 </div>
                                                 <div style="color:#003188;font-family:Raleway, Trebuchet MS, Helvetica, sans-serif;line-height:1.2;padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                     <div style="font-size: 14px; line-height: 1.2; color: #003188; font-family: Raleway, Trebuchet MS, Helvetica, sans-serif; mso-line-height-alt: 17px;">
-                                                        <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><strong><span style="font-size: 34px;">SALAM, SUTANI<br/></span></strong></p>
+                                                        <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><strong><span style="font-size: 34px;">SALAM, {{ $name }}<br/></span></strong></p>
                                                     </div>
                                                 </div>
                                                 <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
@@ -190,7 +190,7 @@
                                                 </table>    
                                                 <div style="color:#003188;font-family:Raleway, Trebuchet MS, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                     <div style="font-size: 14px; line-height: 1.2; color: #003188; font-family: Raleway, Trebuchet MS, Helvetica, sans-serif; mso-line-height-alt: 17px;">
-                                                        <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><strong>Terima kasih, anda telah terdaftar di acara Training Superhope 2020 PT. Muhasabah Diri<br/></strong></p>
+                                                        <p style="font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;"><strong>Terima kasih, anda telah terdaftar di acara {{ $event_name }} {{ $event_agency }}<br/></strong></p>
                                                     </div>
                                                 </div>
                                                 <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">

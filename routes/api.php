@@ -29,3 +29,6 @@ Route::get('attendances/{event_id}', 'AttendanceController@attendanceList')->nam
 
 // Generate PDF File API'S
 Route::post('nametags/generate', 'PdfController@generate_nametags')->name('api.nametags.generate');
+
+Route::post('statistic/event', 'StatisticController@event')->name('api.statistic.event');
+Route::post('statistic/participant', 'StatisticController@participant')->name('api.statistic.participant');
