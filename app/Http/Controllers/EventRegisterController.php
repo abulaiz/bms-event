@@ -109,6 +109,8 @@ class EventRegisterController extends Controller
         $mail_data = [
             'name'=> $request->full_name,
             'email'=> $request->email,
+            'event_name' => $event->name ,
+            'event_agency' => $event->agency ,
             'qrcode_path' => $qrcode_path,
             'to'=> $request->email,
             'subject'=> 'Berhasil Registrasi',
@@ -119,7 +121,7 @@ class EventRegisterController extends Controller
             'data' => $mail_data,
             'template' => '_emails.ticket'
         ];
-        // $sent = $this->myemail->send($email_data);
+        $sent = $this->myemail->send($email_data);
 
 	    return response()->json(['success' => true]);
     }

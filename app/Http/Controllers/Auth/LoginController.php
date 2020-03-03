@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -39,5 +42,16 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('_admin._contents.auth.login');
-    }    
+    } 
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $message = [];
+        if( User::where($this->username(), $request->{ $this->username() })->exists() )
+            $message['password'] = "Password is mismatch";
+        else
+            $message[ $this->username() ] = "Your email is not registered";
+        
+        throw ValidationException::withMessages($message);
+    }          
 }
