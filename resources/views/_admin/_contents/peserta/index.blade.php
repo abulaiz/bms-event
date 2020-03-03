@@ -73,6 +73,8 @@
       </div>    
     </section>
 
+    @include('_admin._contents.peserta._modals.detail')
+
     <div class="hidden rm">
       <p id="url-api-event-list">{{ route('api.event.list') }}</p>
       <p id="url-api-participant-index">{{ route('api.participant.index', '0') }}</p>

@@ -113,7 +113,7 @@ class PdfController extends Controller
 
         Mail::to($participant->email)->send(new \App\Mail\SendCertificate($participant, $event));  
 
-        response()->json(['success' => true]); 
+        return response()->json(['success' => true]); 
     }
 
 
@@ -161,4 +161,24 @@ class PdfController extends Controller
             return response()->json(['flag' => '2']);
         }
     }
+
+
+   /**
+    @params   : - event_id
+                - participant_id
+                - get_participants (true/false)
+    @response : - participants
+                - flag (1/2/3) // 1 : Fetch participants. 2 : progress
+    */
+    public function generate_certificates(Request $request){
+        if( $request->get_participants || $request->get_participants == 'true' ){
+            $event = Event::find($request->event_id);
+            if($event == null)
+                return response()->json([]);
+
+            return response()->json(['participants' => $event->participants()->pluck('id'), 'flag' => '1']);
+        } else {          
+            return $this->send_certificate($request->participant_id);
+        }
+    }    
 }

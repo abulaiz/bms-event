@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => "registration@ccidnasean2020.org",
+        'address' => "info@beetcorp.id",
         'name' => "BMS Global Event",
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'registration@ccidnasean2020.org',
+    'username' => 'info@beetcorp.id',
 
-    'password' => 'Ccidnasean2020!',
+    'password' => '@Justbeetit2018',
 
     /*
     |--------------------------------------------------------------------------

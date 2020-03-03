@@ -1,4 +1,4 @@
-<div class="modal fade text-left" id="add-event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+<div class="modal fade text-left" id="detail-peserta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,89 +13,95 @@
             <div class="col-md-6">
               <label>Nama Lengkap</label>
               <div class="form-group">
-                <input type="text" name="full_name" placeholder="Nama Lengkap" class="form-control">
+                <input type="text" name="full_name" disabled placeholder="Nama Lengkap" class="form-control">
               </div>
-              <label>Tempat Tanggal Lahir</label>
+              <label>Tempat Lahir</label>
               <div class="form-group">
-                <input type="date" name="ttl" placeholder="" class="form-control">
+                <input type="text" name="place_of_birth" placeholder="" class="form-control" disabled>
               </div>    
             </div>
             <div class="col-md-6">
               <label>Nama Panggilan</label>
               <div class="form-group">
-                <input type="text" name="nick_name" placeholder="Nama Panggilan" class="form-control">
+                <input type="text" name="nick_name" placeholder="Nama Panggilan" class="form-control" disabled>
               </div>
+              <label>Tanggal Lahir</label>
+              <div class="form-group">
+                <input type="text" name="date_of_birth" placeholder="" class="form-control" disabled>
+              </div>      
+            </div>
+            <div class="col-md-6">
               <label>Email</label>
               <div class="form-group">
-                <input type="email" name="email" placeholder="Email" class="form-control">
+                <input type="email" name="email" placeholder="Email" class="form-control" disabled>
               </div>    
-            </div>
+            </div>            
           </div>
           <label>Alamat</label>
           <div class="form-group">
-            <textarea name="address" class="form-control" rows="3" placeholder="Alamat"></textarea>
+            <textarea disabled name="address" class="form-control" rows="3" placeholder="Alamat"></textarea>
           </div>
           <div class="row">
             <div class="col-md-6">
               <label>WhatsApp / Phone</label>
               <div class="form-group">
-                <input type="text" name="phone" placeholder="WhatsApp / Phone" class="form-control">
+                <input type="text" name="phone" placeholder="WhatsApp / Phone" class="form-control" disabled>
               </div>
               <label>Twitter</label>
               <div class="form-group">
-                <input type="text" name="twitter" placeholder="Twitter" class="form-control">
+                <input type="text" name="twitter" placeholder="Twitter" class="form-control" disabled>
               </div>    
               <label>Istansi</label>
               <div class="form-group">
-                <input type="text" name="instansi" placeholder="Instansi" class="form-control">
+                <input type="text" name="agency" placeholder="Instansi" class="form-control" disabled>
               </div>    
             </div>
             <div class="col-md-6">
               <label>Instagram</label>
               <div class="form-group">
-                <input type="text" name="instagram" placeholder="Instagram" class="form-control">
+                <input type="text" name="instagram" placeholder="Instagram" class="form-control" disabled>
               </div>
               <label>Facebook</label>
               <div class="form-group">
-                <input type="text" name="facebook" placeholder="Facebook" class="form-control">
+                <input type="text" name="facebook" placeholder="Facebook" class="form-control" disabled>
               </div>    
               <label>Jabatan</label>
               <div class="form-group">
-                <input type="text" name="jabatan" placeholder="Jabatan" class="form-control">
+                <input type="text" name="position" placeholder="Jabatan" class="form-control" disabled>
               </div>    
             </div>
           </div>   
           <label>Masa Kerja</label>
           <div class="form-group">
-            <input type="text" name="masa" placeholder="Masa Kerja" class="form-control">
+            <input type="text" name="years_of_service" placeholder="Masa Kerja" class="form-control" disabled>
           </div>    
           <label>Kekuatan</label>
           <div class="form-group">
-            <input type="text" name="kekuatan" placeholder="Kekuatan" class="form-control">
+            <input type="text" name="strength" placeholder="Kekuatan" class="form-control" disabled>
           </div>    
           <label>Kelemahan</label>
           <div class="form-group">
-            <input type="text" name="kelemahan" placeholder="Kelemahan" class="form-control">
+            <input type="text" name="weakness" placeholder="Kelemahan" class="form-control" disabled>
           </div>    
           <label>Peluang</label>
           <div class="form-group">
-            <input type="text" name="peluang" placeholder="Peluang" class="form-control">
+            <input type="text" name="opportunity" placeholder="Peluang" class="form-control" disabled>
           </div>    
           <label>Tantangan</label>
           <div class="form-group">
-            <input type="text" name="tantangan" placeholder="Tantangan" class="form-control">
+            <input type="text" name="challenge" placeholder="Tantangan" class="form-control" disabled>
           </div>    
           <label>Cerita Singkat</label>
           <div class="form-group">
-            <textarea name="cerita" class="form-control" rows="3" placeholder="Cerita Singkat"></textarea>
+            <textarea name="short_story" class="form-control" rows="3" disabled  placeholder="Cerita Singkat"></textarea>
           </div>
           <label>Harapan Terbesar Dalam Hidup</label>
           <div class="form-group">
-            <textarea name="harapan_hidup" class="form-control" rows="3" placeholder="Harapan Terbesar Dalam Hidup"></textarea>
+            <textarea name="hope_in_life" class="form-control" rows="3" disabled  placeholder="Harapan Terbesar Dalam Hidup"></textarea>
           </div>
           <label>Harapan Mengikuti Pelatihan</label>
           <div class="form-group">
-            <textarea name="harapan_pelatihan" class="form-control" rows="3" placeholder="Harapan Mengikuti Pelatihan"></textarea>
+            <textarea name="hope_in_training" class="form-control" rows="3" disabled  placeholder="Harapan Mengikuti Pelatihan"></textarea>
           </div>
         </div>
         <div class="modal-footer">

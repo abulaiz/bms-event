@@ -7,55 +7,53 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <center>
-                  <img onclick="_triger(this)" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
-              </center>
-            </div>
-            <div class="col-md-6">
-              <label>Nama Kegiatan</label>
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Nama Kegiatan" class="form-control" disabled>
-              </div>
-              <label>Tanggal Mulai Kegiatan</label>
-              <div class="form-group">
-                <input type="date" name="started_date" placeholder="Tanggal Mulai Kegiatan" class="form-control" disabled>
-              </div>
-              <label>Tanggal Selesai Kegiatan</label>
-              <div class="form-group">
-                <input type="date" name="ended_date" placeholder="Tanggal Selesai Kegiatan" class="form-control" disabled>
-              </div>
-              <label>Jenis Kegiatan</label>
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Nama Kegiatan" class="form-control" disabled>
-              </div>
-              <label>Tempat Kegiatan</label>
-              <div class="form-group">
-                <input type="text" name="place" placeholder="Tempat Kegiatan" class="form-control" disabled>
-              </div>           
-            </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <center>
+                <img id="detail-image" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
+            </center>
           </div>
-          <label>Jumlah Pendaftar</label>
-          <div class="form-group">
-            <input name="participant" type="text" placeholder="Jumlah Pendaftar" class="form-control" disabled>
-          </div>   
-          <label>Instansi</label>
-          <div class="form-group">
-            <input name="agency" type="text" placeholder="Instansi" class="form-control" disabled>
+          <div class="col-md-6">
+            <label>Nama Kegiatan</label>
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Nama Kegiatan" class="form-control" disabled>
+            </div>
+            <label>Tanggal Mulai Kegiatan</label>
+            <div class="form-group">
+              <input type="text" name="started_date" placeholder="Tanggal Mulai Kegiatan" class="form-control" disabled>
+            </div>
+            <label>Tanggal Selesai Kegiatan</label>
+            <div class="form-group">
+              <input type="text" name="ended_date" placeholder="Tanggal Selesai Kegiatan" class="form-control" disabled>
+            </div>
+            <label>Jenis Kegiatan</label>
+            <div class="form-group">
+              <input type="text" name="type" placeholder="Nama Kegiatan" class="form-control" disabled>
+            </div>
+            <label>Tempat Kegiatan</label>
+            <div class="form-group">
+              <input type="text" name="place" placeholder="Tempat Kegiatan" class="form-control" disabled>
+            </div>           
           </div>
-          <label>Deskripsi Kegiatan</label>
-          <div class="form-group">
-            <textarea name="description" class="form-control" rows="3" placeholder="Deskripsi Kegiatan" disabled></textarea>
-          </div>          
         </div>
-        <div class="modal-footer">
-          <input type="reset" class="btn btn-outline-success" value="Generate ID Card">
-          <input type="submit" class="btn btn-success" value="Kirim E-Sertifikat">
+        <label>Jumlah Pendaftar</label>
+        <div class="form-group">
+          <input name="participant" type="text" placeholder="Jumlah Pendaftar" class="form-control" disabled>
+        </div>   
+        <label>Instansi</label>
+        <div class="form-group">
+          <input name="agency" type="text" placeholder="Instansi" class="form-control" disabled>
         </div>
-      </form>
+        <label>Deskripsi Kegiatan</label>
+        <div class="form-group">
+          <textarea name="description" class="form-control" rows="3" placeholder="Deskripsi Kegiatan" disabled></textarea>
+        </div>          
+      </div>
+      <div class="modal-footer">
+        <button onclick="_nametags()" class="btn btn-outline-success" type="button">Generate ID Card</button>
+        <button onclick="_certificates()" class="btn btn-success" type="button">Kirim E-Sertifikat</button>
+      </div>
     </div>
   </div>
 </div>

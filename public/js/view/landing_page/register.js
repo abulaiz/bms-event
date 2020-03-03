@@ -8,7 +8,7 @@ $('#form-register').ajaxForm(
 	 	setTimeout(function(){
 	 		if(!has_response)
 	 			_leftAlert('Info', 'Mohon tunggu ...', 'info', false);
-	 	}, 3000);
+	 	}, 5000);
 
 	 },
 	success: function(data) {

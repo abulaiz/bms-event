@@ -2,8 +2,11 @@ var Table;
 var _URL = [];
 _URL['index'] = $("#url-api-events").text();
 _URL['generate_nametag'] = $("#url-api-nametags-generate").text();
+_URL['generate_certificate'] = $("#url-api-certificates-generate").text();
 _URL['delete'] = $("#form-delete").attr('action');
 _URL['update'] = $("#form-update").attr('action');
+
+var current_id = null;
 
 $(".rm").remove();
 
@@ -132,13 +135,21 @@ function generate_nametags(params){
 	,function(data){
 		if(data.flag == '1'){
 			participants = data.participants;
-			s_count = 0;
-			$("#generate-nametag-fetch").hide();
-			$("#generate-nametag-progress").show();
 
+			if(participants.length == 0){
+				_leftAlert('Info', 'Belum ada peserta yang terdaftar', 'info');
+				$("#generate-nametag").modal('toggle');
+				return;
+			}
+
+			s_count = 0;
+			$("#fetch-init").hide();
+			$("#fetch-progress").show();
+
+			let download = participants.length == 1 ;
 			$("#generate-nametag-caption-from").text("1");
 			$("#generate-nametag-caption-to").text(participants.length);
-			generate_nametags({event_id : params.event_id, participant_id : participants[s_count]});
+			generate_nametags({event_id : params.event_id, participant_id : participants[s_count], download : download});
 		} else if (data.flag == '2'){
 			s_count++;
 			$("#generate-nametag-caption-from").text(s_count+1);
@@ -152,13 +163,84 @@ function generate_nametags(params){
 	});		
 }
 
-function _nametags(e){
+function _nametags(params){
+	$("#detail-event").modal('toggle');
+	$("#proses-caption").text("Generate Name Tag Progress");
 	$("#generate-nametag").modal({
 		show : true, backdrop: 'static', keyboard: false
 	});	
-	$("#generate-nametag-fetch").show();
-	$("#generate-nametag-progress").hide();
+	$("#fetch-init").show();
+	$("#fetch-progress").hide();
 
+	generate_nametags({event_id : current_id, get_participants : true});
+}
+
+function generate_certificates(params){
+	$.post(_URL.generate_certificate,params
+	,function(data){
+		if(data.flag == '1'){
+			participants = data.participants;
+
+			if(participants.length == 0){
+				_leftAlert('Info', 'Belum ada peserta yang terdaftar', 'info');
+				$("#generate-nametag").modal('toggle');
+				return;
+			}
+
+			s_count = 0;
+			$("#fetch-init").hide();
+			$("#fetch-progress").show();
+
+			$("#generate-nametag-caption-from").text("1");
+			$("#generate-nametag-caption-to").text(participants.length);
+			generate_certificates({event_id : params.event_id, participant_id : participants[s_count]});
+		} else {
+			s_count++;
+			$("#generate-nametag-caption-from").text(s_count+1);
+
+			if(s_count == participants.length) {
+				$("#generate-nametag").modal('toggle');	
+				_leftAlert('Berhasil', 'E-Sertifikat berhasil dikirim ke peserta pada acara terpilih.', 'success');			
+				return;
+			}
+
+			generate_certificates({event_id : params.event_id, participant_id : participants[s_count]});
+		}
+	});	
+}
+
+function _certificates(){
+	$("#detail-event").modal('toggle');
+	$("#proses-caption").text("Sending E-Certificate Progress");
+	$("#generate-nametag").modal({
+		show : true, backdrop: 'static', keyboard: false
+	});	
+	$("#fetch-init").show();
+	$("#fetch-progress").hide();
+
+	generate_certificates({event_id : current_id, get_participants : true});
+}
+
+function get_normal_date(date){
+	let z = date.split('-');
+	let mn = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+	return z[2]+' '+mn[ Number(z[1]) -1 ]+' '+z[0];
+}
+
+function _detail(e){
 	let data = Table.row($(e).parents('tr')).data();
-	generate_nametags({event_id : data.id, get_participants : true});
+	current_id = data.id;
+
+	$("#detail-event").find('[name=name]').val(data.name);
+	$("#detail-event").find('[name=type]').val(data.type == '1' ? 'Umum' : 'In House');
+	$("#detail-event").find('[name=started_date]').val(get_normal_date(data.started_date));
+	$("#detail-event").find('[name=ended_date]').val(get_normal_date(data.ended_date));
+	$("#detail-event").find('[name=place]').val(data.place);
+	$("#detail-event").find('[name=description]').val(data.description);
+	$("#detail-event").find('[name=agency]').val(data.agency);
+	$("#detail-event").find("[name=participant]").val(data._participant_count);
+	$("#detail-image").attr({'src' : data.image});
+	$("#detail-event").attr({'action' : _URL.delete.replace('/0', '/'+data.id)});
+
+	$("#detail-event").modal({show : true});	
 }

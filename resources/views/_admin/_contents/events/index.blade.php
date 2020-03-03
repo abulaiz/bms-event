@@ -61,6 +61,7 @@
     <div class="hidden rm">
       <p id="url-api-events">{{ route('api.event.index') }}</p>
       <p id="url-api-nametags-generate">{{ route('api.nametags.generate') }}</p>
+      <p id="url-api-certificates-generate">{{ route('api.certificates.generate') }}</p>
     </div>
 
     <form id="form-delete" action="{{ route('api.event.destroy', 0) }}" method="post">

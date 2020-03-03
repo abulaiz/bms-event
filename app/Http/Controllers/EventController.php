@@ -18,6 +18,9 @@ class EventController extends Controller
                             ->addColumn('_status', function($row){ 
                                 return View('_admin._contents.events._partitions.index_status', compact('row'))->render();
                             })
+                            ->addColumn('_participant_count', function($row) {
+                                return count($row->participants);
+                            })
                             ->addColumn('_type', function($row){ return $row->type == '1' ? 'Umum' : 'Private'; })
                             ->rawColumns(['_status', 'action'])
                             ->make(true);        

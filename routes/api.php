@@ -30,6 +30,7 @@ Route::get('attendances/{event_id}', 'AttendanceController@attendanceList')->nam
 
 // Generate PDF File API'S
 Route::post('nametags/generate', 'PdfController@generate_nametags')->name('api.nametags.generate');
+Route::post('certificate/generate', 'PdfController@generate_certificates')->name('api.certificates.generate');
 Route::get('certificate/send/{id}', 'PdfController@send_certificate')->name('api.certificate.send');
 
 Route::post('statistic/event', 'StatisticController@event')->name('api.statistic.event');
