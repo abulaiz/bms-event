@@ -84,7 +84,6 @@ $('.skin-square input').iCheck({
 
 function _delete(e){
 	let data = Table.row($(e).parents('tr')).data();
-	console.log(data);
 	_confirm(0, function(){
 		$("#form-delete").attr({'action' : _URL.delete.replace('/0', '/'+data.id)});
 		$("#button-delete").click();

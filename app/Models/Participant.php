@@ -3,10 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Storage;
 
 class Participant extends Model
 {
     protected $guarded = [''];
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($data) {
+            Storage::delete('qrcode/'.$data->flag.'.png');
+            $files = Storage::files('e_certificates/'.$data->id);
+            foreach ($files as $item) {
+                Storage::delete($item);
+            }                                    
+        });
+    }  
 
     public function job(){
     	return $this->hasOne('App\Models\ParticipantJob');

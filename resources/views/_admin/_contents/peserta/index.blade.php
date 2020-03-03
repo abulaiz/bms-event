@@ -76,6 +76,9 @@
     <div class="hidden rm">
       <p id="url-api-event-list">{{ route('api.event.list') }}</p>
       <p id="url-api-participant-index">{{ route('api.participant.index', '0') }}</p>
+      <p id="url-api-participant-delete">{{ route('api.participant.delete') }}</p>
+      <p id="url-nametag-show">{{ route('nametag.show', '0') }}</p>
+      <p id="url-api-certicicate-send">{{ route('api.certificate.send', '0') }}</p>
     </div>    
 @endsection
 
@@ -90,6 +93,7 @@
   <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/vendors/css/forms/selects/selectize.default.css')}}">
   <link rel="stylesheet" type="text/css" href="{{URL::asset('admin/css/plugins/forms/selectize/selectize.css')}}">
   <script src="{{URL::asset('admin/vendors/js/forms/select/selectize.min.js')}}" type="text/javascript"></script>  
+
 
   <script type="text/javascript" src="{{ URL::asset('js/view/peserta/index.js?').uniqid() }}"></script>
   <script type="text/javascript" src="{{URL::asset('js/additional/cleanSelectize.js')}}"></script>

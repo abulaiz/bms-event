@@ -1,6 +1,7 @@
 var _URL = [];
 _URL['events'] = $("#url-api-event-list").text();
 _URL['participant'] = $("#url-api-participant-index").text();
+_URL['delete'] = $("#url-api-participant-delete").text();
 $(".rm").remove();
 
 var selectizes = $('.selectizes').selectize();
@@ -61,3 +62,28 @@ s.on('change', function(){
 	Table = $('#datatable').DataTable(getOptions( statuses['s_'+s.items[0]], s.items[0] ));
 	$("#table-card").css('opacity', '1');
 });
+
+function _delete(e){
+	let data = Table.row($(e).parents('tr')).data();
+	_confirm(0, function(){
+		$.post(_URL.delete,{
+			id : data.id
+		}
+		,function(data){
+			if(data.success){
+				_leftAlert('Berhasil', 'Data Peserta berhasil dihapus', 'info');
+				Table.ajax.reload();
+			} else {
+				_leftAlert('Mohon maaf', 'Silahkan muat ulang, terjadi kesalahan sistem', 'error');
+			}
+		});			
+	});	
+}
+
+function generate_id(e){
+	let data = Table.row($(e).parents('tr')).data();
+}
+
+function send_certificate(e){
+	let data = Table.row($(e).parents('tr')).data();
+}

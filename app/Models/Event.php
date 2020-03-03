@@ -19,7 +19,11 @@ class Event extends Model
             $files = Storage::files('event_image/'.$event->id);
             foreach ($files as $item) {
                 Storage::delete($item);
-            }            
+            }  
+            $files = Storage::files('event_nametags/'.$event->id);
+            foreach ($files as $item) {
+                Storage::delete($item);
+            }                        
         });
     }       
 

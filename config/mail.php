@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => "registration@ccidnasean2020.org",
-        'name' => "GIZ Country Conference 2020",
+        'name' => "BMS Global Event",
     ],
 
     /*

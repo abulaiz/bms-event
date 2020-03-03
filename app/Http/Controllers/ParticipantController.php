@@ -25,4 +25,13 @@ class ParticipantController extends Controller
                             ->rawColumns(['status', 'action'])
                             ->make(true);      	
     }
+
+    public function delete(Request $request){
+        $data = Participant::find($request->id);
+        if($data == null)
+            return response()->json(['success' => false]);
+
+        $data->delete();
+        return response()->json(['success' => true]);
+    }
 }

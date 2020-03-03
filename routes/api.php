@@ -22,6 +22,7 @@ Route::resource('event', 'EventController', ['as' => 'api'])->except(['create'])
 
 // Participant API`S
 Route::get('participant/{event_id}', 'ParticipantController@index')->name('api.participant.index');
+Route::post('participant/delete', 'ParticipantController@delete')->name('api.participant.delete');
 
 // Attendances API`S
 Route::post('attendances/scan', 'AttendanceController@setAttendance')->name('api.scan');
@@ -29,6 +30,7 @@ Route::get('attendances/{event_id}', 'AttendanceController@attendanceList')->nam
 
 // Generate PDF File API'S
 Route::post('nametags/generate', 'PdfController@generate_nametags')->name('api.nametags.generate');
+Route::get('certificate/send/{id}', 'PdfController@send_certificate')->name('api.certificate.send');
 
 Route::post('statistic/event', 'StatisticController@event')->name('api.statistic.event');
 Route::post('statistic/participant', 'StatisticController@participant')->name('api.statistic.participant');
