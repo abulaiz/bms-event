@@ -1,5 +1,5 @@
 @extends('_user._templates.master')
-@section('title', 'Nama Acara | BMS')
+@section('title', 'Event | BMS')
 
 @section('header')
     <div class="hero-wrap hero-bread" style="background-image: url({{URL::asset('user/images/bg_6.jpg')}});">
