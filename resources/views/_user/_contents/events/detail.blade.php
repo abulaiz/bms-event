@@ -53,7 +53,7 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
-    				<a href="{{ URL::asset('user/images/tes.jpg') }}" class="image-popup prod-img-bg"><img src="{{ URL::asset('user/images/tes.jpg') }}" class="img-fluid" alt="Poster"></a>
+    				<a href="{{ $event->image }}" class="image-popup prod-img-bg"><img src="{{ $event->image }}" class="img-fluid" alt="Poster"></a>
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h3>{{ $event->name }}</h3>

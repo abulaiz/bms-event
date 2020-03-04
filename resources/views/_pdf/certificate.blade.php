@@ -4,9 +4,9 @@
 
 <p style="position: absolute; top: 340px; left: 80px; font-size: 45px; max-width: 800px; color: #e48d2a">{{ $name }}</p>
 
-<p style="position: absolute; top: 430px; left: 80px; font-size: 32px; max-width: 800px; font-style: italic; font-weight: bold;">{{ $event_name }}</p>
+<p style="position: absolute; top: 440px; left: 80px; font-size: 32px; max-width: 800px; font-style: italic; font-weight: bold;">{{ $event_name }}</p>
 
-<p style="position: absolute; top: 540px; left: 80px; max-width: 1000px; font-size: 20px;">Yang diselenggarakan oleh Bangkit Mandiri Sejahtera (BMS) Global Consultant, {{ $date }}</p>
+<p style="position: absolute; top: 510px; left: 80px; max-width: 1000px; font-size: 23px;">Yang diselenggarakan oleh Bangkit Mandiri Sejahtera (BMS) Global Consultant, {{ $date }}</p>
 
 <style type="text/css">
 html{
