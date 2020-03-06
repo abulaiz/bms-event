@@ -2,26 +2,24 @@
 @section('title', 'Event | BMS')
 
 @section('header')
-<section id="home-section" class="hero">
-		  <div class="home-slider owl-carousel">
-	      <div class="slider-item js-fullheight">
-	      	<div class="overlay"></div>
-	        <div class="container-fluid p-0">
-	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-	          	
-		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<div class="horizontal" >
-				            <h1 class="mb-4 mt-3" style="color: #fff;">BMS Online Registration</h1>
-				            <p class="mb-4" style="color: #fff;">Daftar event BMS secara praktis melalui BMS Online Registration.</p>
-				          </div>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
+
+    <div class="hero-wrap hero-bread" style="background-image: url({{URL::asset('user/images/hd_1.jpg')}});">
+        <div class="container-fluid p-0">
+          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+            
+              <div class="one-forth d-flex align-items-center">
+                <div class="text">
+                    <div class="horizontal" style="padding: 26px;
+background-color:
+rgba(6, 6, 6, 0.6);">
+                        <h1 class="mb-4 mt-3" style="color: #fff;">BMS Online Registration</h1>
+                        <p class="mb-4" style="color: #fff;">Daftar event BMS secara praktis melalui BMS Online Registration.</p>
+                      </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('body')

@@ -12,8 +12,8 @@ $('#form-register').ajaxForm(
 
 	 },
 	success: function(data) {
+		has_response = true;
 		if(data.success){
-			has_response = true;
 			_leftAlert('Berhasil', 'Registrasi telah berhasil', 'success');
 			$("#form-container").remove();
 			$("#alert-container").show();
@@ -28,7 +28,7 @@ $('#form-register').ajaxForm(
 			}, 200);
 		} else {
 			for(let i = 0; i < data.errors.length; i++){
-				_leftAlert('Perhatian !', data.errors[i], 'warning', false);
+				_leftAlert('Perhatian !', data.errors[i], 'warning', i == 0 );
 			}
 		}
 
