@@ -9,6 +9,10 @@ use App\Models\Event;
 
 class AttendanceController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }    
+
     public function setAttendance(Request $request){
     	$participant = Participant::where('flag', $request->flag)->get();
         $event = Event::find($request->event_id);

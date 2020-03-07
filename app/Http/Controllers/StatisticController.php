@@ -8,6 +8,10 @@ use App\Models\Participant;
 
 class StatisticController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }    
+    
     public function event(Request $request){
     	$r = [];
     	for($i = 1; $i <= 12; $i++){

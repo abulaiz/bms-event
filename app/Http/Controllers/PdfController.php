@@ -14,6 +14,11 @@ use App\Models\Setting;
 
 class PdfController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }    
+    
     private function get_day($arr){
         $s = $arr[2];
         if( (int)$s < 10 )

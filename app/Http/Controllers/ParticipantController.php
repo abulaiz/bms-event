@@ -9,6 +9,10 @@ use Datatables;
 
 class ParticipantController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }    
+    
     public function index($event_id){
         $event = Event::find($event_id);
         if($event == null)

@@ -10,6 +10,11 @@ use App\Models\Event;
 
 class FileController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth')->only('nametag_downloade');
+    }    
+
     public function event_image($id){
     	ob_end_clean();
 		$mime_type = [
