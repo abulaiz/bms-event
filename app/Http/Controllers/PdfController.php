@@ -47,17 +47,44 @@ class PdfController extends Controller
         return $sds.$eds;
     }
 
-    public function sertifikat(){
-    	$pdf = PDF::loadView('_pdf.test_certificate');
-    	$pdf->setPaper('a4', 'landscape');
-    	return $pdf->stream('eunha.pdf');
+   /**
+    $code : encrypted string which contain {started_date : value, ended_date : value}
+    */
+    public function event_report($code = null){
+        if($code == null){
+            $data = Event::orderby('started_date')->get();
+        } else {
+            $date = json_decode( (new SimpleEnc())->decrypt($code) );
+            $data = Event::orderby('started_date')
+                          ->whereDate('started_date', '>=', $date->started_date)
+                          ->whereDate('ended_date', '<=', $date->ended_date)
+                          ->get();
+        }
+        
+        $pdf = PDF::loadView('_pdf.event_report', compact('data'));
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Laporan Acara.pdf');
     }
 
+    public function participant_report($event_id){
+        $event = Event::find($event_id);
+        $event_name = $event->name;
+        if($event == null)
+            return "Not Found";
+        $data = $event->participants;
+        $pdf = PDF::loadView('_pdf.participant_report', compact('data', 'event_name'));
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Daftar Peserta Pada Acara '.$event->name.'.pdf');
+    }
 
-    public function nametag(){
-    	$pdf = PDF::loadView('_pdf.test_nametag');
-    	$pdf->setPaper('b5', 'landscape');
-    	return $pdf->stream('yerin.pdf');
+    public function participant_attendance_report($event_id){
+        $event = Event::find($event_id);
+        if($event == null)
+            return "Not Found";
+        $data = $event->participants;
+        $pdf = PDF::loadView('_pdf.participant_attendance_report', compact('data', 'event'));
+        $pdf->setPaper('a4', 'potrait');
+        return $pdf->stream('Daftar Peserta Pada Acara '.$event->name.'.pdf');        
     }
 
    /**

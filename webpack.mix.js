@@ -15,4 +15,5 @@ const mix = require('laravel-mix');
 //    .sass('resources/sass/app.scss', 'public/css');
 
 mix.js('resources/js/view/absensi/index.js', 'public/js/view/absensi/index.js')
-   .js('resources/js/view/landing_page/event.js', 'public/js/view/landing_page/event.js');
+   .js('resources/js/view/landing_page/event.js', 'public/js/view/landing_page/event.js')
+   .js('resources/js/view/events/index.js', 'public/js/view/events/index.js');

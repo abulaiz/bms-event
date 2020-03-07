@@ -27,8 +27,12 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
+                  <button type="button" class="btn btn-info pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print mr-1"></i> Cetak Laporan</button>
+                  <div class="dropdown-menu" x-placement="bottom-start">
+                    <a class="dropdown-item" href="{{ route('report.event') }}" target="blank"><i class="fa fa-check-square-o mr-1"></i> Semua Event</a>  
+                      <a data-toggle="modal" data-target="#print-report" class="dropdown-item"><i class="fa fa-calendar mr-1"></i> Berdasarkan Tanggal</a>
+                  </div>                 
                   <h4 class="card-title">Data Event</h4>
-                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 </div>
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
@@ -57,6 +61,7 @@
     @include('_admin._contents.events._modals.edit')
     @include('_admin._contents.events._modals.detail')
     @include('_admin._contents.events._modals.generate_nametag_progress')
+    @include('_admin._contents.events._modals.print_report')
 
     <div class="hidden rm">
       <p id="url-api-events">{{ route('api.event.index') }}</p>

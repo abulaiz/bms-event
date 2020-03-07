@@ -23,7 +23,8 @@ class Event extends Model
             $files = Storage::files('event_nametags/'.$event->id);
             foreach ($files as $item) {
                 Storage::delete($item);
-            }                        
+            }        
+            $event->participants()->delete();                
         });
     }       
 

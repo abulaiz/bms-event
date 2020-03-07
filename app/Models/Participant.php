@@ -17,7 +17,11 @@ class Participant extends Model
             $files = Storage::files('e_certificates/'.$data->id);
             foreach ($files as $item) {
                 Storage::delete($item);
-            }                                    
+            }    
+
+            $data->job()->delete();                                
+            $data->personality()->delete();                                
+            $data->attendances()->delete();                                
         });
     }  
 

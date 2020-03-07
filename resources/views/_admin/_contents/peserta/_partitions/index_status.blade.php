@@ -8,7 +8,7 @@
 
 @elseif($event->status == '3')
 	
-	@if($row->attendances()->count() == (2*$event->attendance_count) )
+	@if( ($row->attendances()->count() == (2*$event->attendance_count)) && $event->attendance_count != 0 )
 		<i data-toggle="tooltip" data-placement="top" data-original-title="Hadir" class="fa fa-lg fa-check success"></i>
 	@elseif($row->attendances()->count() == 0)
 		<i data-toggle="tooltip" data-placement="top" data-original-title="Tidak hadir" class="fa fa-lg fa-times danger"></i>

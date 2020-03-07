@@ -9,6 +9,10 @@ use Datatables;
 
 class EventController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('paginated_list');
+    }    
+
     public function index(){
         return Datatables::of(Event::orderByDesc('started_date')->get())
                             ->addIndexColumn()

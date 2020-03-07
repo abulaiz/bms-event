@@ -50,14 +50,14 @@
             </div>
             <div class="col-md-6">
               <center>
-                  <img onclick="_triger(this)" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
+                  <img onclick="window._triger(this)" src="{{ URL::asset('noimage.jpg') }}" style="height: 360px; max-width: 360px;">
               </center>
               <center>
-                   <a onclick="_triger(this)" class="btn btn-success ml-1 text-white" style="margin-top: 10px;">
+                   <a onclick="window._triger(this)" class="btn btn-success ml-1 text-white" style="margin-top: 10px;">
                       <i class="fa fa-file-image-o mr-1"></i> Ubah Gambar
                   </a>    
               </center>
-              <input type="file" style="display: none;" accept="image/*" onchange="previewFile(this)" name="image">  
+              <input type="file" style="display: none;" accept="image/*" onchange="window.previewFile(this)" name="image">  
             </div>
           </div>
 

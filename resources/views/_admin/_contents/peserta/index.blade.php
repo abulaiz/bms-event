@@ -43,8 +43,12 @@
           </div>       
           <div class="card" id="table-card" style="opacity: 0;">
             <div class="card-header" style="padding-bottom: unset;">
-              <h4 class="card-title">Data Peserta</h4>
-              <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+              <button type="button" class="btn btn-info pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print mr-1"></i> Cetak Laporan</button>
+              <div class="dropdown-menu" x-placement="bottom-start">
+                <a id="participant_list_report_btn" class="dropdown-item" href="#" target="blank"><i class="fa fa-list mr-1"></i> Daftar Peserta</a>  
+                <a id="participant_attendance_report_btn" class="dropdown-item" target="blank"><i class="fa fa-check-square-o mr-1"></i> Daftar Kehadiran</a>
+              </div>                
+              <h4 class="card-title">Data Peserta</h4> 
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
@@ -81,6 +85,8 @@
       <p id="url-api-participant-delete">{{ route('api.participant.delete') }}</p>
       <p id="url-nametag-show">{{ route('nametag.show', '0') }}</p>
       <p id="url-api-certicicate-send">{{ route('api.certificate.send', '0') }}</p>
+      <p id="url-report-participant">{{ route('report.participant', '0') }}</p>
+      <p id="url-report-participant-attendance">{{ route('report.participant_attendance', '0') }}</p>
     </div>    
 @endsection
 

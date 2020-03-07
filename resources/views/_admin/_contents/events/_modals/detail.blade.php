@@ -51,8 +51,8 @@
         </div>          
       </div>
       <div class="modal-footer">
-        <button onclick="_nametags()" class="btn btn-outline-success" type="button">Generate ID Card</button>
-        <button onclick="_certificates()" class="btn btn-success" type="button">Kirim E-Sertifikat</button>
+        <button onclick="window._nametags()" class="btn btn-outline-success" type="button">Generate ID Card</button>
+        <button onclick="window._certificates()" class="btn btn-success" type="button">Kirim E-Sertifikat</button>
       </div>
     </div>
   </div>

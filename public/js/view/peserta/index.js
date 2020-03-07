@@ -4,6 +4,8 @@ _URL['participant'] = $("#url-api-participant-index").text();
 _URL['delete'] = $("#url-api-participant-delete").text();
 _URL['show_nametag'] = $("#url-nametag-show").text();
 _URL['send_certificate'] = $("#url-api-certicicate-send").text();
+_URL['participant_report'] = $("#url-report-participant").text();
+_URL['participant_attendance_report'] = $("#url-report-participant-attendance").text();
 $(".rm").remove();
 
 var selectizes = $('.selectizes').selectize();
@@ -62,6 +64,10 @@ s.on('change', function(){
 	}
 
 	Table = $('#datatable').DataTable(getOptions( statuses['s_'+s.items[0]], s.items[0] ));
+
+	$("#participant_list_report_btn").attr({'href' : _URL.participant_report.replace('/0', '/'+s.items[0])});
+	$("#participant_attendance_report_btn").attr({'href' : _URL.participant_attendance_report.replace('/0', '/'+s.items[0])});
+	
 	$("#table-card").css('opacity', '1');
 });
 
