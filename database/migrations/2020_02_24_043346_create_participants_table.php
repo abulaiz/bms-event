@@ -22,6 +22,7 @@ class CreateParticipantsTable extends Migration
             $table->text('address');
             $table->string('place_of_birth');
             $table->date('date_of_birth');
+            $table->string('mother_name');
             $table->string('phone');
             $table->string('email');
             $table->string('instagram');
@@ -32,11 +33,21 @@ class CreateParticipantsTable extends Migration
 
         Schema::create('participant_jobs', function(Blueprint $table) {
             $table->unsignedInteger('participant_id');
-            $table->string('agency');
-            $table->string('position');
-            $table->string('years_of_service');
+            $table->string('agency')->nullable();
+            $table->string('position')->nullable();
+            $table->string('years_of_service')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('participant_educations', function(Blueprint $table) {
+            $table->unsignedInteger('participant_id');
+            $table->string('university')->nullable();
+            $table->string('faculty')->nullable();
+            $table->string('study_program')->nullable();
+            $table->string('generation')->nullable();
+            $table->string('level')->nullable();
+            $table->timestamps();
+        });        
 
         Schema::create('participant_personalities', function(Blueprint $table) {
             $table->unsignedInteger('participant_id');

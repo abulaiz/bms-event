@@ -33,6 +33,10 @@ class Participant extends Model
     	return $this->hasOne('App\Models\ParticipantPersonality');
     }    
 
+    public function education(){
+        return $this->hasOne('App\Models\ParticipantEducation');
+    }
+
     public function attendances(){
     	return $this->hasMany('App\Models\ParticipantAttendance');
     }

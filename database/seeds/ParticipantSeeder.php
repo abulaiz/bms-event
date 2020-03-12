@@ -25,6 +25,7 @@ class ParticipantSeeder extends Seeder
 	    		'nick_name' => $nn,
 	    		'place_of_birth' => $faker->city,
 	    		'date_of_birth' => $faker->date($format = 'Y-m-d', $max = '2000-01-01'),
+	    		'mother_name' => $faker->name($gender = 'female'),
 	    		'phone' => $faker->phoneNumber,
 	    		'email' => $faker->email,
 	    		'instagram' => $nn,
@@ -40,7 +41,7 @@ class ParticipantSeeder extends Seeder
 	    		'challenge' => $faker->sentence($nbWords = 10, $variableNbWords = true),
 	    		'short_story' => $faker->sentence($nbWords = 10, $variableNbWords = true),
 	    		'hope_in_life' => $faker->sentence($nbWords = 10, $variableNbWords = true),
-	    		'hope_in_training' => $faker->sentence($nbWords = 10, $variableNbWords = true)        		
+	    		'hope_in_training' => $faker->sentence($nbWords = 10, $variableNbWords = true)      		
         	]);
 
         	app('App\Http\Controllers\EventRegisterController')->register($request);

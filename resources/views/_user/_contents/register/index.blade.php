@@ -28,11 +28,12 @@
 			<form id="form-register" action="{{ route('event.register.store') }}" method="POST" class="billing-form">
 				@csrf
 				<input type="hidden" name="event_id" value="{{ $event->id }}">
-				<h3 class="mb-4 billing-heading">Data Diri</h3>
+				<h3 class="billing-heading" style="margin-bottom: unset;">Data Diri</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">Wajib diisi</small>
 	        	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	            		<div class="form-group">
-	            			<label for="firstname">Nama Lengkap</label>
+	            			<label>Nama Lengkap</label>
 	              			<input type="text" name="full_name" class="form-control" placeholder="Nama Lengkap">
 	            		</div>
 	            	</div>
@@ -44,16 +45,22 @@
                 	</div>
                 	<div class="col-md-6">
 	            		<div class="form-group">
-	            			<label for="firstname">Tempat Lahir</label>
+	            			<label>Tempat Lahir</label>
 	              			<input type="text" class="form-control" name="place_of_birth" placeholder="Tempat Lahir">
 	            		</div>
 	            	</div>
                 	<div class="col-md-6">
 	            		<div class="form-group">
-	            			<label for="firstname">Tanggal Lahir</label>
+	            			<label>Tanggal Lahir</label>
 	              			<input type="date" class="form-control" name="date_of_birth" placeholder="Tanggal Lahir">
 	            		</div>
-	            	</div>	            	
+	            	</div>	
+                	<div class="col-md-6">
+	            		<div class="form-group">
+	            			<label>Nama Ibu Kandung</label>
+	              			<input type="text" class="form-control" name="mother_name" placeholder="Nama Ibu Kandung">
+	            		</div>
+	            	</div>		            	            	
 	            	<div class="col-md-6">
 	            		<div class="form-group">
 	            			<label for="lastname">Email</label>
@@ -94,11 +101,55 @@
 	            		</div>
 		        	</div>
 				</div>
-				<h3 class="mb-4 billing-heading">Data Pekerjaan</h3>
+				<h3 class="billing-heading" style="margin-bottom: unset;">Data Universitas</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">(bagi yang masih mahasiswa)</small>
 	        	<div class="row align-items-end">
 	        		<div class="col-md-6">
 	        			<div class="form-group">
-	        				<label for="firstname">Instansi</label>
+	        				<label>Nama Universitas</label>
+	             			<input type="text" name="university" class="form-control" placeholder="Nama Universitas">
+	        			</div>
+	        		</div>
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label for="lastname">Fakultas</label>
+	             			<input type="text" name="faculty" class="form-control" placeholder="Fakultas">
+	        			</div>
+            		</div>
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label for="lastname">Program Studi</label>
+	             			<input type="text" name="study_program" class="form-control" placeholder="Program Studi">
+	        			</div>
+            		</div>     
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label for="lastname">Angkatan</label>
+	             			<input type="text" name="generation" class="form-control" placeholder="Angkatan">
+	        			</div>
+            		</div>                 		       		
+            		<div class="col-md-12">
+	        			<div class="form-group">
+	        				<label>Strata</label>
+	        				<select class="form-control" name="level">
+	        					<option selected value="" disabled>-- Pilih Strata --</option>
+	        					<option value="D1">D1</option>
+	        					<option value="D2">D2</option>
+	        					<option value="D3">D3</option>
+	        					<option value="D4">D4</option>
+	        					<option value="S1">S1</option>
+	        					<option value="S2">S2</option>
+	        					<option value="S3">S3</option>
+	        				</select>
+	        			</div>
+	        		</div>
+		        </div> 				
+				<h3 class="billing-heading" style="margin-bottom: unset;">Data Pekerjaan</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">(bagi karyawan/pegawai)</small>
+	        	<div class="row align-items-end">
+	        		<div class="col-md-6">
+	        			<div class="form-group">
+	        				<label>Instansi</label>
 	             			<input type="text" name="agency" class="form-control" placeholder="Instansi">
 	        			</div>
 	        		</div>
@@ -110,16 +161,17 @@
             		</div>
             		<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Masa Kerja</label>
+	        				<label>Masa Kerja</label>
 	             			<input type="text" name="years_of_service" class="form-control" placeholder="Masa Kerja">
 	        			</div>
 	        		</div>
 		        </div>    
-				<h3 class="mb-4 billing-heading">Analisa Personal</h3>
+				<h3 class="billing-heading" style="margin-bottom: unset;">Analisa Personal</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">Wajib diisi</small>
 	        	<div class="row align-items-end">
 	        		<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Kekuatan</label>
+	        				<label>Kekuatan</label>
 	             			<input type="text" name="strength" class="form-control" placeholder="Kekuatan">
 	        			</div>
 	        		</div>
@@ -131,42 +183,44 @@
             		</div>
             		<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Peluang</label>
+	        				<label>Peluang</label>
 	             			<input type="text" name="opportunity" class="form-control" placeholder="Peluang">
 	        			</div>
 	        		</div>
 					<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Tantangan</label>
+	        				<label>Tantangan</label>
 	             			<input type="text" name="challenge" class="form-control" placeholder="Tantangan">
 	        			</div>
 	        		</div>
 		        </div>    
-				<h3 class="mb-4 billing-heading">Cerita Singkat Tentang Pribadi</h3>
+				<h3 class="billing-heading" style="margin-bottom: unset;">Cerita Singkat Tentang Pribadi</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">Wajib diisi</small>
 	        	<div class="row align-items-end">
 	        		<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Cerita Singkat</label>
+	        				<label>Cerita Singkat</label>
 							<textarea class="form-control" name="short_story" rows="5" placeholder="Cerita Singkat"></textarea>
 	        			</div>
 	        		</div>
 		        </div>    
-				<h3 class="mb-4 billing-heading">Harapan</h3>
+				<h3 class="billing-heading" style="margin-bottom: unset;">Harapan</h3>
+				<small class="mb-4" style="color: red; font-style: italic;">Wajib diisi</small>
 	        	<div class="row align-items-end">
 	        		<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Harapan Terbesar Dalam Hidup</label>
+	        				<label>Harapan Terbesar Dalam Hidup</label>
 							<textarea class="form-control" name="hope_in_life" rows="5" placeholder="Harapan Terbesar Dalam Hidup"></textarea>
 	        			</div>
 	        		</div>
 					<div class="col-md-12">
 	        			<div class="form-group">
-	        				<label for="firstname">Harapan Mengikuti Pelatihan</label>
+	        				<label>Harapan Mengikuti Pelatihan</label>
 							<textarea class="form-control" name="hope_in_training" rows="5" placeholder="Harapan Mengikuti Pelatihan"></textarea>
 	        			</div>
 	        		</div>
 					<div class="col-md-12">
-						<button class="btn btn-primary py-3 px-4" type="submit">Register</button>
+						<button id="submit-registration" class="btn btn-primary py-3 px-4" type="submit">Register</button>
 	        		</div>
 		        </div> 
 	        </form><!-- END -->

@@ -18,7 +18,9 @@ class ParticipantController extends Controller
         if($event == null)
             return response()->json([]);
 
-        return Datatables::of(Participant::where('event_id', $event_id)->with('job')->with('personality')->get())
+        return Datatables::of(Participant::where('event_id', $event_id)->with('job')
+                                            ->with('personality')->with('education')
+                                            ->get())
                             ->addIndexColumn()
                             ->addColumn('action', function($row) use ($event){
                                 return View('_admin._contents.peserta._partitions.index_action', compact('row', 'event'));

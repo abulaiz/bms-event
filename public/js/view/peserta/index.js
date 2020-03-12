@@ -122,6 +122,14 @@ function get_normal_date(date){
 	return z[2]+' '+mn[ Number(z[1]) -1 ]+' '+z[0];
 }
 
+function get_unknown_index_data(data, index){
+	if( data == null )
+		return '-';
+	if( data[index] == null )
+		return '-';
+	return data[index];
+}
+
 function _detail(e){
 	let data = Table.row($(e).parents('tr')).data();
 
@@ -136,9 +144,16 @@ function _detail(e){
 	$("#detail-peserta").find("[name=twitter]").val( data.twitter );
 	$("#detail-peserta").find("[name=facebook]").val( data.facebook );
 
-	$("#detail-peserta").find("[name=agency]").val( data.job.agency );
-	$("#detail-peserta").find("[name=position]").val( data.job.agency );
-	$("#detail-peserta").find("[name=years_of_service]").val( data.job.years_of_service );
+	$("#detail-peserta").find("[name=agency]").val( get_unknown_index_data(data.job, 'agency') );
+	$("#detail-peserta").find("[name=position]").val( get_unknown_index_data(data.job, 'position') );
+	$("#detail-peserta").find("[name=years_of_service]").val( get_unknown_index_data(data.job, 'years_of_service') );
+
+	$("#detail-peserta").find("[name=university]").val( get_unknown_index_data(data.education, 'university') );
+	$("#detail-peserta").find("[name=faculty]").val( get_unknown_index_data(data.education, 'faculty') );
+	$("#detail-peserta").find("[name=study_program]").val( get_unknown_index_data(data.education, 'study_program') );
+	$("#detail-peserta").find("[name=generation]").val( get_unknown_index_data(data.education, 'generation') );
+	$("#detail-peserta").find("[name=level]").val( get_unknown_index_data(data.education, 'level') );
+
 
 	$("#detail-peserta").find("[name=strength]").val( data.personality.strength );
 	$("#detail-peserta").find("[name=weakness]").val( data.personality.weakness );

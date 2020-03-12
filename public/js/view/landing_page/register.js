@@ -5,6 +5,7 @@ $('#form-register').ajaxForm(
 	 beforeSubmit : function(arr, $form, options){
 	 	has_response = false;
 	 	_leftAlert('Info', 'Sedang memproses ...', 'info');
+	 	$("#submit-registration").attr({'disabled' : 'disabled'});
 	 	setTimeout(function(){
 	 		if(!has_response)
 	 			_leftAlert('Info', 'Mohon tunggu ...', 'info', false);
@@ -27,6 +28,7 @@ $('#form-register').ajaxForm(
 				});							
 			}, 200);
 		} else {
+			$("#submit-registration").removeAttr('disabled');
 			for(let i = 0; i < data.errors.length; i++){
 				_leftAlert('Perhatian !', data.errors[i], 'warning', i == 0 );
 			}

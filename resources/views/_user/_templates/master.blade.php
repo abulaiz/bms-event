@@ -24,7 +24,7 @@
     
     <link rel="stylesheet" href="{{ URL::asset('user/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('user/css/icomoon.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('user/css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('user/css/style.css?').uniqid() }}">
   </head>
   <body class="goto-here">
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">

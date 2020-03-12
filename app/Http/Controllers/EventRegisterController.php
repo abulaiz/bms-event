@@ -28,15 +28,13 @@ class EventRegisterController extends Controller
     		'nick_name' => 'required|string|max:255',
     		'place_of_birth' => 'required|string|max:255',
     		'date_of_birth' => 'required|date',
+            'mother_name' => 'required|max:255',
             'phone' => 'required',
     		'address' => 'required',
     		'email' => 'required|email|max:255',
     		'instagram' => 'required|max:255',
     		'twitter' => 'required|max:255',
     		'facebook' => 'required|max:255',
-    		'agency' => 'required|max:255',
-    		'position' => 'required|max:255',
-    		'years_of_service' => 'required|max:255',
     		'strength' => 'required|max:255',
     		'weakness' => 'required|max:255',
     		'opportunity' => 'required|max:255',
@@ -49,11 +47,11 @@ class EventRegisterController extends Controller
         $validator->setAttributeNames([
             'full_name' => 'Nama Lengkap', 'nick_name' => 'Nama Panggilan',
             'place_of_birth' => 'Tempat Lahir', 'date_of_birth' => 'Tanggal Lahir',
-            'phone' => 'WhatsApp / Phone', 'address' => 'Alamat', 'position' => 'Jabatan',
-            'agency' => 'Instansi', 'years_of_service' => 'Masa Kerja', 'strength' => 'Kekuatan',
+            'phone' => 'WhatsApp / Phone', 'address' => 'Alamat', 'strength' => 'Kekuatan',
             'weakness' => 'Kelemahan', 'opportunity' => 'Peluang', 'challenge' => 'Tantangan',
             'short_story' => 'Cerita Singkat', 'hope_in_life' => 'Harapan dalam Hidup',
-            'hope_in_training' => 'Harapan mengikuti pelatihan'
+            'hope_in_training' => 'Harapan mengikuti pelatihan',
+            'mother_name' => 'Nama Ibu Kandung'
         ]);
 
 	    if( $validator->fails() )
@@ -69,7 +67,8 @@ class EventRegisterController extends Controller
     		'full_name' => $request->full_name,
     		'nick_name' => $request->nick_name,
     		'place_of_birth' => $request->place_of_birth,
-    		'date_of_birth' => $request->date_of_birth,
+            'date_of_birth' => $request->date_of_birth,
+    		'mother_name' => $request->mother_name,
             'phone' => $request->phone,
     		'address' => $request->address,
     		'email' => $request->email,
@@ -90,11 +89,21 @@ class EventRegisterController extends Controller
 
         $data->update(['flag' => $flag]);
 
-	    $data->job()->create([
-    		'agency' => $request->agency,
-    		'position' => $request->position,
-    		'years_of_service' => $request->years_of_service
-	    ]);
+        if(isset($request->agency) || isset($request->position) || isset($request->years_of_service))
+    	    $data->job()->create([
+        		'agency' => $request->agency,
+        		'position' => $request->position,
+        		'years_of_service' => $request->years_of_service
+    	    ]);
+
+        if(isset($request->university) || isset($request->faculty) || isset($request->study_program) || isset($request->generation) || isset($request->level))
+            $data->education()->create([
+                'university' => $request->university,
+                'faculty' => $request->faculty,
+                'study_program' => $request->study_program,
+                'generation' => $request->generation,
+                'level' => $request->level
+            ]);
 
 	    $data->personality()->create([
     		'strength' => $request->strength,
