@@ -124,7 +124,7 @@
                                         <div style="width:100% !important;">
                                             <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:20px; padding-right: 0px; padding-left: 0px;">
                                                 <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                                                    <a style="outline:none" tabindex="-1"> <img align="center" alt="Logo" border="0" class="center fixedwidth" src="{{ URL::asset('email/images/logo_bms_.png') }}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 181px; display: block;" title="Logo" width="181"/></a>
+                                                    <a style="outline:none" tabindex="-1"> <img align="center" alt="Logo" border="0" class="center fixedwidth" src="{{ URL::asset('email/images/SUPERHOPE.png') }}" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: none; width: 100%; max-width: 181px; display: block;" title="Logo" width="181"/></a>
                                                 </div>
                                             </div>
                                         </div>
